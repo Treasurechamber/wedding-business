@@ -460,7 +460,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
         const ADMIN_PASSWORD = "2025";
 
         // Get folder name from URL
-        const folderName = window.location.pathname.split('/').filter(part => part.length > 0)[0] || 'sarah-michael';
+       const folderName = window.location.pathname.split('/').filter(part => part.length > 0).slice(-2)[0] || 'default';
         console.log('Dashboard folder name:', folderName);
 
         let allGuests = [];
@@ -523,7 +523,7 @@ async function loadDashboard() {
         const { data: couple, error: coupleError } = await supabase
             .from('couples')
             .select('id, couple_name')
-            .eq('folder_name', 'sarah-michael')
+            .eq('folder_name', folderName)
             .single();
 
         if (coupleError || !couple) {
@@ -554,7 +554,7 @@ async function loadDashboard() {
         console.error('Database error, falling back to localStorage:', error);
         
         // Fallback to localStorage
-        const localRSVPs = JSON.parse(localStorage.getItem('wedding_rsvps_sarah-michael') || '[]');
+        const localRSVPs = JSON.parse(localStorage.getItem(`wedding_rsvps_${folderName}`) || '[]');
         console.log('Loaded RSVPs from localStorage:', localRSVPs);
         
         allGuests = localRSVPs;

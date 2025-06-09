@@ -513,64 +513,29 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
         });
 
         // Load dashboard data from database
-        async function loadDashboard() {
-            try {
-                console.log('Loading dashboard for:', folderName);
-                
-                // Get couple ID first
-                const { data: couple, error: coupleError } = await supabase
-                    .from('couples')
-                    .select('id, couple_name')
-                    .eq('folder_name', folderName)
-                    .single();
-
-                if (coupleError) {
-                    console.error('Error finding couple:', coupleError);
-                    throw coupleError;
-                }
-
-                console.log('Found couple:', couple);
-
-                // Get RSVPs for this couple
-                const { data: rsvps, error: rsvpError } = await supabase
-                    .from('rsvps')
-                    .select('*')
-                    .eq('couple_id', couple.id)
-                    .order('created_at', { ascending: false });
-
-                if (rsvpError) {
-                    console.error('Error loading RSVPs:', rsvpError);
-                    throw rsvpError;
-                }
-
-                console.log('Loaded RSVPs:', rsvps);
-                allGuests = rsvps || [];
-                updateStats(allGuests);
-                displayGuests(allGuests);
-
-            } catch (error) {
-                console.error('Error loading dashboard:', error);
-                
-                // Fallback to localStorage
-                const localRSVPs = JSON.parse(localStorage.getItem('wedding_rsvps_' + folderName) || '[]');
-                allGuests = localRSVPs;
-                updateStats(allGuests);
-                displayGuests(allGuests);
-                
-                // Show error in container
-                const container = document.getElementById('guestContainer');
-                if (allGuests.length === 0) {
-                    container.innerHTML = `
-                        <div style="text-align: center; padding: 2rem; color: #e74c3c;">
-                            <h3>⚠️ Database Connection Error</h3>
-                            <p>Could not connect to database. Using local storage as backup.</p>
-                            <p>Error: ${error.message}</p>
-                            <button onclick="loadDashboard()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Retry</button>
-                        </div>
-                    `;
-                }
-            }
-        }
+        // Load dashboard data from localStorage
+function loadDashboard() {
+    try {
+        console.log('Loading dashboard for:', folderName);
+        
+        // Load from localStorage
+        const rsvps = JSON.parse(localStorage.getItem('wedding_rsvps_sarah-michael') || '[]');
+        console.log('Loaded RSVPs from localStorage:', rsvps);
+        
+        allGuests = rsvps;
+        updateStats(allGuests);
+        displayGuests(allGuests);
+        
+    } catch (error) {
+        console.error('Error loading dashboard:', error);
+        document.getElementById('guestContainer').innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: #e74c3c;">
+                <h3>Error loading data</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+    }
+}
 
         // Update statistics
         function updateStats(rsvps) {

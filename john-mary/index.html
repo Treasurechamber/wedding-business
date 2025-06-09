@@ -796,12 +796,12 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
 
     try {
         // First, get the couple ID from database
-        console.log('Looking for couple with folder_name: sarah-michael');
+       console.log('Looking for couple with folder_name:', folderName);
         
         const { data: couple, error: coupleError } = await supabase
             .from('couples')
             .select('id')
-            .eq('folder_name', 'sarah-michael')
+           .eq('folder_name', folderName)
             .single();
 
         if (coupleError || !couple) {

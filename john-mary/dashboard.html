@@ -461,7 +461,8 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
         // Get folder name from URL
        const folderName = window.location.pathname.split('/').filter(part => part.length > 0).slice(-2)[0] || 'default';
-        console.log('Dashboard folder name:', folderName);
+alert('Full URL: ' + window.location.pathname + ' | Detected folder: ' + folderName);
+console.log('Dashboard folder name:', folderName);
 
         let allGuests = [];
         let currentFilter = 'all';

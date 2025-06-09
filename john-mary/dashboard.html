@@ -517,7 +517,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 // Load dashboard data from database (with localStorage fallback)
 async function loadDashboard() {
     try {
-        console.log('Loading dashboard for: sarah-michael');
+        console.log('Loading dashboard for:', folderName);
         
         // Try to get couple ID from database
         const { data: couple, error: coupleError } = await supabase

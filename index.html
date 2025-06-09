@@ -778,7 +778,8 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
         // RSVP Form submission with database
         // Simple RSVP form (localStorage only)
-document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+// RSVP Form submission with database
+document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const submitBtn = document.querySelector('.submit-btn');
@@ -792,35 +793,61 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     // Show loading
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('guestName').value,
-        email: document.getElementById('guestEmail').value,
-        attendance: document.getElementById('attendance').value,
-        guest_count: parseInt(document.getElementById('guestCount').value),
-        dietary: document.getElementById('dietary').value,
-        message: document.getElementById('message').value,
-        created_at: new Date().toISOString(),
-        id: Date.now()
-    };
-    
-    // Save to localStorage
-    let rsvps = JSON.parse(localStorage.getItem('wedding_rsvps_sarah-michael') || '[]');
-    rsvps.push(formData);
-    localStorage.setItem('wedding_rsvps_sarah-michael', JSON.stringify(rsvps));
-    
-    // Show success
-    successMessage.style.display = 'block';
-    document.getElementById('rsvpForm').reset();
-    
-    // Reset button
-    submitBtn.textContent = 'Send RSVP';
-    submitBtn.disabled = false;
+
+    try {
+        // First, get the couple ID from database
+        console.log('Looking for couple with folder_name: sarah-michael');
+        
+        const { data: couple, error: coupleError } = await supabase
+            .from('couples')
+            .select('id')
+            .eq('folder_name', 'sarah-michael')
+            .single();
+
+        if (coupleError || !couple) {
+            console.error('Couple not found:', coupleError);
+            throw new Error('Could not find couple in database');
+        }
+
+        console.log('Found couple:', couple);
+
+        // Collect form data
+        const formData = {
+            couple_id: couple.id,
+            name: document.getElementById('guestName').value.trim(),
+            email: document.getElementById('guestEmail').value.trim(),
+            attendance: document.getElementById('attendance').value,
+            guest_count: parseInt(document.getElementById('guestCount').value),
+            dietary: document.getElementById('dietary').value.trim() || null,
+            message: document.getElementById('message').value.trim() || null
+        };
+
+        console.log('Submitting RSVP to database:', formData);
+
+        // Submit to Supabase database
+        const { data, error } = await supabase
+            .from('rsvps')
+            .insert([formData]);
+
+        if (error) {
+            console.error('Database error:', error);
+            throw error;
+        }
+
+        console.log('RSVP saved to database successfully!');
+
+        // Show success
+        successMessage.style.display = 'block';
+        document.getElementById('rsvpForm').reset();
+
+    } catch (error) {
+        console.error('Error submitting RSVP:', error);
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Error: ' + error.message;
+        
+    } finally {
+        submitBtn.textContent = 'Send RSVP';
+        submitBtn.disabled = false;
+    }
 });
-       
-        // Initialize everything when page loads
-        window.addEventListener('load', function() {
-            console.log('Wedding website loaded successfully!');
-        });
 </script>

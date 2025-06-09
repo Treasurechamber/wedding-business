@@ -503,9 +503,95 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
   // Supabase configuration
-  const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
-  const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+ const SUPABASE_URL = 'https://jhzpwqxkwjzifbotmkjp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoenB3cXhrd2ppZmJvdG1ranAiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTczMzc3OTE2NCwiZXhwIjoyMDQ5MzU1MTY0fQ.O4P14B4gw_Sms8ojw040c8jh6QeuvE1Be5L6TdZl4Q';
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    // Add this code to both sarah-michael/index.html and john-mary/index.html
+// Put it right after: const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Get folder name from URL (sarah-michael or john-mary)
+const folderName = window.location.pathname.split('/').filter(part => part.length > 0)[0] || 'sarah-michael';
+console.log('Folder name:', folderName);
+
+// RSVP Form submission with database
+document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.querySelector('.submit-btn');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Hide any existing messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    try {
+        // Get the couple ID from database
+        console.log('Looking for couple with folder_name:', folderName);
+        
+        const { data: couple, error: coupleError } = await supabase
+            .from('couples')
+            .select('id')
+            .eq('folder_name', folderName)
+            .single();
+
+        if (coupleError) {
+            console.error('Error finding couple:', coupleError);
+            throw new Error('Couple not found: ' + coupleError.message);
+        }
+
+        if (!couple) {
+            throw new Error('No couple found with folder name: ' + folderName);
+        }
+
+        console.log('Found couple:', couple);
+
+        // Collect form data
+        const formData = {
+            couple_id: couple.id,
+            name: document.getElementById('guestName').value.trim(),
+            email: document.getElementById('guestEmail').value.trim(),
+            attendance: document.getElementById('attendance').value,
+            guest_count: parseInt(document.getElementById('guestCount').value),
+            dietary: document.getElementById('dietary').value.trim() || null,
+            message: document.getElementById('message').value.trim() || null
+        };
+
+        console.log('Submitting RSVP:', formData);
+
+        // Submit to Supabase
+        const { data, error } = await supabase
+            .from('rsvps')
+            .insert([formData]);
+
+        if (error) {
+            console.error('Database error:', error);
+            throw error;
+        }
+
+        console.log('RSVP submitted successfully');
+
+        // Show success message
+        successMessage.style.display = 'block';
+        document.getElementById('rsvpForm').reset();
+
+        // Also save to localStorage as backup
+        let rsvps = JSON.parse(localStorage.getItem('wedding_rsvps_' + folderName) || '[]');
+        rsvps.push({ ...formData, id: Date.now(), created_at: new Date().toISOString() });
+        localStorage.setItem('wedding_rsvps_' + folderName, JSON.stringify(rsvps));
+
+    } catch (error) {
+        console.error('Error submitting RSVP:', error);
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Error: ' + error.message;
+    } finally {
+        submitBtn.textContent = 'Send RSVP';
+        submitBtn.disabled = false;
+    }
+});
 </script>
 </head>
 

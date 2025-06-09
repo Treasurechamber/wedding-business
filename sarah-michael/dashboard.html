@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Dashboard - Sarah & Michael</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .header-actions {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .refresh-btn, .export-btn, .logout-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .refresh-btn:hover, .export-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .logout-btn {
+            background: rgba(231, 76, 60, 0.8);
+            border-color: #e74c3c;
+        }
+
+        .logout-btn:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .dashboard-content {
+            padding: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .guest-section {
+            margin-top: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-family: inherit;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .guest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #667eea;
+        }
+
+        /* Login Styles */
+        .login-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .login-input:focus {
+            border-color: #667eea;
+            background: white;
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-link {
+            color: #667eea;
+            text-decoration: none;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .dashboard-title {
+                font-size: 2rem;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .back-btn, .header-actions {
+                position: static;
+                transform: none;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+
+            .guest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <h1 class="login-title">🔐 Admin Access</h1>
+            <p style="color: #666; margin-bottom: 2rem;">Enter your credentials to access the wedding dashboard</p>
+            
+            <form class="login-form" id="loginForm">
+                <input type="text" class="login-input" id="loginUsername" placeholder="Username" required>
+                <input type="password" class="login-input" id="loginPassword" placeholder="Password" required>
+                <button type="submit" class="login-btn">Access Dashboard</button>
+                <div id="loginError" style="color: #e74c3c; margin-top: 1rem; display: none;">Invalid credentials. Please try again.</div>
+            </form>
+            
+            <a href="index.html" class="back-link">← Back to Wedding Invitation</a>
+        </div>
+    </div>
+
+    <!-- Dashboard (hidden initially) -->
+    <div class="dashboard-container" id="dashboardContainer" style="display: none;">
+        <div class="dashboard-header">
+            <a href="index.html" class="back-btn">← Back to Wedding</a>
+            <div class="header-center">
+                <h1 class="dashboard-title">💕 Wedding Dashboard</h1>
+                <p class="dashboard-subtitle">Sarah & Michael - December 15, 2025</p>
+            </div>
+            <div class="header-actions">
+                <button class="refresh-btn" onclick="loadDashboard()">🔄 Refresh</button>
+                <button class="export-btn" onclick="exportToCSV()">📊 Export CSV</button>
+                <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalGuests">0</span>
+                    <span class="stat-label">Total RSVPs</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="attendingGuests">0</span>
+                    <span class="stat-label">Attending</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="notAttendingGuests">0</span>
+                    <span class="stat-label">Not Attending</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalPeople">0</span>
+                    <span class="stat-label">Total People</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="withDietary">0</span>
+                    <span class="stat-label">Special Dietary</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="withMessages">0</span>
+                    <span class="stat-label">With Messages</span>
+                </div>
+            </div>
+
+            <div class="guest-section">
+                <div class="section-header">
+                    <h2 class="section-title">Guest Details</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterGuests('all')">All</button>
+                        <button class="filter-btn" onclick="filterGuests('attending')">Attending</button>
+                        <button class="filter-btn" onclick="filterGuests('not-attending')">Not Attending</button>
+                        <button class="filter-btn" onclick="filterGuests('dietary')">Special Dietary</button>
+                        <button class="filter-btn" onclick="filterGuests('messages')">With Messages</button>
+                    </div>
+                </div>
+
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search guests by name or email..." onkeyup="filterGuests()">
+
+                <div id="guestContainer">
+                    <div class="loading">
+                        <div style="font-size: 2rem;">⏳</div>
+                        Loading guest data...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // Supabase configuration
+        const SUPABASE_URL = 'https://jhzpwqxkwjzifbotmkjp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoenB3cXhrd2p6aWZib3Rta2pwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk0NTYwOTMsImV4cCI6MjA2NTAzMjA5M30.04PI4B4gw_Sms8ojw04i0c0jh6QeuvE1Be5L6TdZl4Q';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Authentication system
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "2025";
+
+        // Get folder name from URL
+        const folderName = window.location.pathname.split('/').filter(part => part.length > 0)[0] || 'sarah-michael';
+        console.log('Dashboard folder name:', folderName);
+
+        let allGuests = [];
+        let currentFilter = 'all';
+
+        // Check if user is already logged in
+        function checkAuth() {
+            const isLoggedIn = sessionStorage.getItem('dashboard_auth') === 'true';
+            if (isLoggedIn) {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('dashboardContainer').style.display = 'none';
+        }
+
+        function showDashboard() {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('dashboardContainer').style.display = 'block';
+            loadDashboard();
+        }
+
+        function logout() {
+            sessionStorage.removeItem('dashboard_auth');
+            showLogin();
+            document.getElementById('loginForm').reset();
+            document.getElementById('loginError').style.display = 'none';
+        }
+
+        // Handle login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                sessionStorage.setItem('dashboard_auth', 'true');
+                errorDiv.style.display = 'none';
+                showDashboard();
+            } else {
+                errorDiv.style.display = 'block';
+                document.getElementById('loginPassword').value = '';
+            }
+        });
+
+        // Load dashboard data from database
+        // Load dashboard data from localStorage
+// Load dashboard data from database (with localStorage fallback)
+async function loadDashboard() {
+    try {
+        console.log('Loading dashboard for: sarah-michael');
+        
+        // Try to get couple ID from database
+        const { data: couple, error: coupleError } = await supabase
+            .from('couples')
+            .select('id, couple_name')
+            .eq('folder_name', 'sarah-michael')
+            .single();
+
+        if (coupleError || !couple) {
+            console.error('Couple not found, using localStorage fallback');
+            throw new Error('Couple not found in database');
+        }
+
+        console.log('Found couple:', couple);
+
+        // Get RSVPs from database
+        const { data: rsvps, error: rsvpError } = await supabase
+            .from('rsvps')
+            .select('*')
+            .eq('couple_id', couple.id)
+            .order('created_at', { ascending: false });
+
+        if (rsvpError) {
+            console.error('Error loading RSVPs from database:', rsvpError);
+            throw rsvpError;
+        }
+
+        console.log('Loaded RSVPs from database:', rsvps);
+        allGuests = rsvps || [];
+        updateStats(allGuests);
+        displayGuests(allGuests);
+
+    } catch (error) {
+        console.error('Database error, falling back to localStorage:', error);
+        
+        // Fallback to localStorage
+        const localRSVPs = JSON.parse(localStorage.getItem('wedding_rsvps_sarah-michael') || '[]');
+        console.log('Loaded RSVPs from localStorage:', localRSVPs);
+        
+        allGuests = localRSVPs;
+        updateStats(allGuests);
+        displayGuests(allGuests);
+        
+        // Show warning message
+        const container = document.getElementById('guestContainer');
+        if (allGuests.length === 0) {
+            container.innerHTML = `
+                <div style="text-align: center; padding: 2rem; color: #e74c3c;">
+                    <h3>⚠️ Database Connection Issue</h3>
+                    <p>Using local storage as backup. RSVPs may not sync across devices.</p>
+                    <button onclick="loadDashboard()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Retry Database Connection</button>
+                </div>
+            `;
+        }
+    }
+}
+
+        // Update statistics
+        function updateStats(rsvps) {
+            const totalGuests = rsvps.length;
+            const attendingGuests = rsvps.filter(rsvp => rsvp.attendance === 'yes').length;
+            const notAttendingGuests = rsvps.filter(rsvp => rsvp.attendance === 'no').length;
+            const totalPeople = rsvps.reduce((sum, rsvp) => {
+                return rsvp.attendance === 'yes' ? sum + (rsvp.guest_count || 1) : sum;
+            }, 0);
+            const withDietary = rsvps.filter(rsvp => rsvp.dietary && rsvp.dietary.trim() !== '').length;
+            const withMessages = rsvps.filter(rsvp => rsvp.message && rsvp.message.trim() !== '').length;
+
+            document.getElementById('totalGuests').textContent = totalGuests;
+            document.getElementById('attendingGuests').textContent = attendingGuests;
+            document.getElementById('notAttendingGuests').textContent = notAttendingGuests;
+            document.getElementById('totalPeople').textContent = totalPeople;
+            document.getElementById('withDietary').textContent = withDietary;
+            document.getElementById('withMessages').textContent = withMessages;
+
+            console.log('Stats updated:', {
+                total: totalGuests,
+                attending: attendingGuests,
+                notAttending: notAttendingGuests,
+                totalPeople: totalPeople
+            });
+        }
+
+        // Display guests
+        function displayGuests(guests) {
+            const container = document.getElementById('guestContainer');
+            
+            if (guests.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">👥</div>
+                        <h3>No RSVPs yet</h3>
+                        <p>RSVPs will appear here when guests respond.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const guestCards = guests.map(guest => `
+                <div style="background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.2s ease;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <strong style="color: #333; font-size: 1.2rem;">${guest.name}</strong>
+                            <div style="color: #666; font-size: 0.9rem;">📧 ${guest.email}</div>
+                        </div>
+                        <span style="padding: 0.5rem 1rem; border-radius: 15px; font-size: 0.8rem; font-weight: bold; ${
+                            guest.attendance === 'yes' 
+                                ? 'background: #d4edda; color: #155724;' 
+                                : 'background: #f8d7da; color: #721c24;'
+                        }">
+                            ${guest.attendance === 'yes' ? '✅ Attending' : '❌ Not Attending'}
+                        </span>
+                    </div>
+                    
+                    <div style="color: #666; font-size: 0.9rem; line-height: 1.4;">
+                        ${guest.attendance === 'yes' ? `<div style="margin-bottom: 0.5rem;">👥 ${guest.guest_count || 1} ${(guest.guest_count || 1) === 1 ? 'person' : 'people'}</div>` : ''}
+                        ${guest.dietary ? `<div style="margin-bottom: 0.5rem;">🍽️ Dietary: ${guest.dietary}</div>` : ''}
+                        ${guest.message ? `
+                            <div style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea;">
+                                <strong style="color: #667eea;">💌 Message:</strong><br>
+                                <em>"${guest.message}"</em>
+                            </div>
+                        ` : ''}
+                        <div style="margin-top: 1rem; color: #999; font-size: 0.8rem;">
+                            📅 ${new Date(guest.created_at).toLocaleDateString()} at ${new Date(guest.created_at).toLocaleTimeString()}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = guestCards;
+        }
+
+        // Filter functions
+        function filterGuests(filter) {
+            if (filter) {
+                currentFilter = filter;
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                if (event && event.target) event.target.classList.add('active');
+            }
+
+            const searchTerm = document.getElementById('searchBox')?.value.toLowerCase() || '';
+            let filteredGuests = allGuests;
+
+            // Apply attendance filter
+            if (currentFilter === 'attending') {
+                filteredGuests = filteredGuests.filter(guest => guest.attendance === 'yes');
+            } else if (currentFilter === 'not-attending') {
+                filteredGuests = filteredGuests.filter(guest => guest.attendance === 'no');
+            } else if (currentFilter === 'dietary') {
+                filteredGuests = filteredGuests.filter(guest => guest.dietary && guest.dietary.trim() !== '');
+            } else if (currentFilter === 'messages') {
+                filteredGuests = filteredGuests.filter(guest => guest.message && guest.message.trim() !== '');
+            }
+
+            // Apply search filter
+            if (searchTerm) {
+                filteredGuests = filteredGuests.filter(guest => 
+                    guest.name.toLowerCase().includes(searchTerm) ||
+                    guest.email.toLowerCase().includes(searchTerm) ||
+                    (guest.dietary && guest.dietary.toLowerCase().includes(searchTerm)) ||
+                    (guest.message && guest.message.toLowerCase().includes(searchTerm))
+                );
+            }
+
+            displayGuests(filteredGuests);
+        }
+
+        // Export to CSV function
+        function exportToCSV() {
+            if (allGuests.length === 0) {
+                alert('No data to export');
+                return;
+            }
+
+            const headers = ['Name', 'Email', 'Attendance', 'Guest Count', 'Dietary Requirements', 'Message', 'RSVP Date', 'RSVP Time'];
+            const csvContent = [
+                headers.join(','),
+                ...allGuests.map(guest => [
+                    `"${guest.name}"`,
+                    `"${guest.email}"`,
+                    guest.attendance === 'yes' ? 'Attending' : 'Not Attending',
+                    guest.guest_count || 1,
+                    `"${guest.dietary || ''}"`,
+                    `"${guest.message || ''}"`,
+                    `"${new Date(guest.created_at).toLocaleDateString()}"`,
+                    `"${new Date(guest.created_at).toLocaleTimeString()}"`
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${folderName}-rsvps-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            // Show success feedback
+            const exportBtn = document.querySelector('.export-btn');
+            const originalText = exportBtn.textContent;
+            exportBtn.textContent = '✅ Exported!';
+            exportBtn.style.background = 'rgba(46, 204, 113, 0.8)';
+            exportBtn.style.borderColor = '#2ecc71';
+            
+            setTimeout(() => {
+                exportBtn.textContent = originalText;
+                exportBtn.style.background = 'rgba(255,255,255,0.2)';
+                exportBtn.style.borderColor = 'white';
+            }, 2000);
+        }
+
+        // Initialize dashboard when page loads
+        window.addEventListener('load', function() {
+            console.log('Dashboard loaded for:', folderName);
+            checkAuth();
+        });
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            if (sessionStorage.getItem('dashboard_auth') === 'true') {
+                loadDashboard();
+            }
+        }, 30000);
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (sessionStorage.getItem('dashboard_auth') === 'true') {
+                // Ctrl/Cmd + R to refresh
+                if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+                    e.preventDefault();
+                    loadDashboard();
+                }
+                
+                // Ctrl/Cmd + E to export
+                if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+                    e.preventDefault();
+                    exportToCSV();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -840,6 +840,10 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
         successMessage.style.display = 'block';
         document.getElementById('rsvpForm').reset();
 
+        setTimeout(() => {
+    successMessage.style.display = 'none';
+}, 5000);
+
     } catch (error) {
         console.error('Error submitting RSVP:', error);
         errorMessage.style.display = 'block';
@@ -848,6 +852,47 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     } finally {
         submitBtn.textContent = 'Send RSVP';
         submitBtn.disabled = false;
+    }
+});
+        // Handle attendance change - disable fields for "not attending"
+document.getElementById('attendance').addEventListener('change', function() {
+    const attendance = this.value;
+    const guestCountField = document.getElementById('guestCount');
+    const dietaryField = document.getElementById('dietary');
+    const guestCountLabel = document.querySelectorAll('.form-label')[3];
+    const dietaryLabel = document.querySelectorAll('.form-label')[4];
+    
+    if (attendance === 'no') {
+        // Disable fields for not attending
+        guestCountField.disabled = true;
+        dietaryField.disabled = true;
+        guestCountField.value = '1';
+        dietaryField.value = '';
+        
+        // Style disabled fields
+        guestCountField.style.opacity = '0.5';
+        dietaryField.style.opacity = '0.5';
+        guestCountField.style.cursor = 'not-allowed';
+        dietaryField.style.cursor = 'not-allowed';
+        
+        // Update labels
+        guestCountLabel.style.opacity = '0.5';
+        dietaryLabel.style.opacity = '0.5';
+        
+    } else {
+        // Enable fields
+        guestCountField.disabled = false;
+        dietaryField.disabled = false;
+        
+        // Restore styling
+        guestCountField.style.opacity = '1';
+        dietaryField.style.opacity = '1';
+        guestCountField.style.cursor = 'pointer';
+        dietaryField.style.cursor = 'text';
+        
+        // Restore labels
+        guestCountLabel.style.opacity = '1';
+        dietaryLabel.style.opacity = '1';
     }
 });
 </script>

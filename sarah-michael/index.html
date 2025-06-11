@@ -270,6 +270,27 @@
             font-size: 1.1rem;
             opacity: 0.9;
         }
+        .section-title {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+}
+
+.photo-slider .section-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
 
         /* Timeline */
         /* MAGICAL TIMELINE SECTION */
@@ -713,36 +734,134 @@
 
 /* RESPONSIVE MOBILE MAGIC */
 @media (max-width: 768px) {
-   .timeline-date {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    display: block !important;
-    margin-bottom: 2rem;
-    padding: 1.2rem 2.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(240, 147, 251, 0.9)) !important;
-    color: white !important;
-    box-shadow: 
-        0 15px 30px rgba(102, 126, 234, 0.4),
-        0 0 40px rgba(240, 147, 251, 0.3) !important;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    z-index: 10 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
+    .timeline-section {
+        padding: 8rem 0;
+    }
+    
+    .timeline-section .section-title {
+        margin-bottom: 6rem;
+        letter-spacing: 4px;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+    
+    .timeline::before {
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 6rem;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: 52%;
+        margin-left: 0;
+        text-align: right;
+        padding: 2rem 1.5rem;
+    }
 
-.timeline-date::before {
-    display: none;
-}
-}
-        /* Countdown */
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 52%;
+        margin-right: 0;
+        text-align: left;
+        padding: 2rem 1.5rem;
+    }
+    
+    .timeline-item::after {
+        display: block;
+        width: 80px;
+    }
+    
+    .timeline-item:nth-child(odd)::after {
+        right: 52%;
+    }
+
+    .timeline-item:nth-child(even)::after {
+        left: 52%;
+    }
+    
+    .timeline-date {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translateX(-50%) translateY(-50%) !important;
+        display: block !important;
+        margin-bottom: 0;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(240, 147, 251, 0.9)) !important;
+        color: white !important;
+        box-shadow: 
+            0 15px 30px rgba(102, 126, 234, 0.4),
+            0 0 40px rgba(240, 147, 251, 0.3) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        z-index: 10 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        animation: badgeFloat 4s ease-in-out infinite;
+    }
+    
+    .timeline-date::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+        background-size: 400% 400%;
+        border-radius: 27px;
+        z-index: -1;
+        animation: borderGlow 3s ease-in-out infinite;
+    }
+    
+    .timeline-content {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    
+    .timeline-image {
+        height: 200px;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .timeline-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: white !important;
+        background: linear-gradient(45deg, #ffffff, #667eea, #ffffff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titleShimmer 6s ease-in-out infinite;
+    }
+    
+    .timeline-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+    
+    .timeline-decoration {
+        font-size: 2rem;
+        opacity: 0.05;
+    }
+}       /* Countdown */
         /* Ultra Futuristic Countdown Section */
 .countdown-section {
     padding: 10rem 0;

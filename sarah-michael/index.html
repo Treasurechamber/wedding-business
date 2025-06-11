@@ -713,69 +713,34 @@
 
 /* RESPONSIVE MOBILE MAGIC */
 @media (max-width: 768px) {
-    .timeline-section {
-        padding: 8rem 0;
-    }
-    
-    .timeline-section .section-title {
-        margin-bottom: 6rem;
-        letter-spacing: 4px;
-    }
-    
-    .timeline::before {
-        display: none;
-    }
-    
-    .timeline-item {
-        margin-bottom: 6rem;
-    }
-    
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 0;
-        margin-right: 0;
-        text-align: center;
-    }
-    
-    .timeline-item::after {
-        display: none;
-    }
-    
-    .timeline-date {
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        display: inline-block;
-        margin-bottom: 2rem;
-        padding: 1rem 2rem;
-        border-radius: 25px;
-        font-size: 1rem;
-    }
-    
-    .timeline-content {
-        padding: 2rem;
-        border-radius: 20px;
-    }
-    
-    .timeline-image {
-        height: 250px;
-        border-radius: 15px;
-    }
-    
-    .timeline-title {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .timeline-description {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-    
-    .timeline-decoration {
-        display: none;
-    }
+   .timeline-date {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: block !important;
+    margin-bottom: 2rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(240, 147, 251, 0.9)) !important;
+    color: white !important;
+    box-shadow: 
+        0 15px 30px rgba(102, 126, 234, 0.4),
+        0 0 40px rgba(240, 147, 251, 0.3) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.timeline-date::before {
+    display: none;
+}
 }
         /* Countdown */
         /* Ultra Futuristic Countdown Section */

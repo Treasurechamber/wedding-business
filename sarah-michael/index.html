@@ -418,98 +418,334 @@
         }
 
         /* RSVP Form */
-        .rsvp-section {
-            padding: 5rem 0;
-            background: white;
-        }
+        /* Ultra Modern RSVP Section */
+.rsvp-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+}
 
-        .rsvp-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #f8f9fa;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    z-index: 1;
+}
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
+.rsvp-section .section-title {
+    color: white;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 200;
+    letter-spacing: 3px;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
 
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #333;
-        }
+.rsvp-section .section-title::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    width: 150px;
+    height: 2px;
+}
 
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
+.rsvp-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
 
-        .form-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
+.rsvp-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
 
-        .form-select {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: white;
-        }
+.rsvp-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    border-radius: 30px;
+    z-index: -1;
+}
 
-        .submit-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            width: 100%;
-        }
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
+.form-group {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
 
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
 
-        /* Status Messages */
-        .status-message {
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            font-weight: 500;
-            display: none;
-        }
+.form-label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+}
 
-        .status-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
+.form-label::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
 
-        .status-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+}
 
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: rgba(102, 126, 234, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 0 0 4px rgba(102, 126, 234, 0.1),
+        0 8px 25px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 4rem;
+}
+
+.form-select option {
+    background: #1a1a2e;
+    color: white;
+    padding: 1rem;
+}
+
+.form-input[type="textarea"] {
+    resize: vertical;
+    min-height: 120px;
+    font-family: 'Georgia', serif;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    color: white;
+    padding: 1.8rem 4rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #7c8ef0 0%, #8458b8 50%, #f5a5ff 100%);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    background: linear-gradient(135deg, #666 0%, #888 100%);
+}
+
+/* Floating Animation Elements */
+.rsvp-form::after {
+    content: '✦';
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 2rem;
+    animation: floatSpin 8s ease-in-out infinite;
+}
+
+.form-decoration {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 3rem;
+    z-index: 0;
+    animation: floatSpin 10s ease-in-out infinite reverse;
+}
+
+.form-decoration:nth-child(1) {
+    top: 20%;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.form-decoration:nth-child(2) {
+    bottom: 30%;
+    right: -30px;
+    animation-delay: 3s;
+}
+
+/* Status Messages - Modern Style */
+.status-message {
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    font-weight: 500;
+    display: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+    animation: slideInMessage 0.5s ease-out;
+}
+
+.status-success {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border-color: rgba(76, 175, 80, 0.3);
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.1);
+}
+
+.status-error {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border-color: rgba(244, 67, 54, 0.3);
+    box-shadow: 0 10px 25px rgba(244, 67, 54, 0.1);
+}
+
+/* Animations */
+@keyframes floatSpin {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.1;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.2;
+    }
+}
+
+@keyframes slideInMessage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .rsvp-section {
+        padding: 5rem 0;
+    }
+    
+    .rsvp-form {
+        margin: 0 1rem;
+        padding: 2.5rem 2rem;
+        border-radius: 25px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    
+    .form-input,
+    .form-select {
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .submit-btn {
+        padding: 1.5rem 3rem;
+        font-size: 1.1rem;
+    }
+    
+    .form-decoration {
+        display: none;
+    }
+}
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -882,23 +1118,32 @@
     </section>
 
     <!-- RSVP Section -->
-    <section class="rsvp-section" id="rsvp">
-        <div class="container">
-            <h2 class="section-title">Will You Join Us?</h2>
-            <form class="rsvp-form" id="rsvpForm">
+<!-- RSVP Section -->
+<section class="rsvp-section" id="rsvp">
+    <div class="container">
+        <h2 class="section-title">Will You Join Us?</h2>
+        <form class="rsvp-form" id="rsvpForm">
+            <!-- Floating Decorations -->
+            <div class="form-decoration">✧</div>
+            <div class="form-decoration">❋</div>
+            
+            <div class="form-row">
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" id="guestName" required>
+                    <input type="text" class="form-input" id="guestName" placeholder="Enter your full name" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-input" id="guestEmail" required>
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="guestEmail" placeholder="your@email.com" required>
                 </div>
+            </div>
+
+            <div class="form-row">
                 <div class="form-group">
                     <label class="form-label">Will you be attending?</label>
                     <select class="form-select" id="attendance" required>
                         <option value="">Please select...</option>
-                        <option value="yes">Yes, I'll be there!</option>
+                        <option value="yes">Yes, I'll be there! ✨</option>
                         <option value="no">Sorry, can't make it</option>
                     </select>
                 </div>
@@ -911,24 +1156,29 @@
                         <option value="4">Me + 3</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Special Dietary Requirements</label>
-                    <input type="text" class="form-input" id="dietary" placeholder="Optional">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Message for the Couple</label>
-                    <textarea class="form-input" id="message" rows="4" placeholder="Optional"></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send RSVP</button>
-                <div class="status-message status-success" id="successMessage">
-                    Thank you for your RSVP! We can't wait to celebrate with you!
-                </div>
-                <div class="status-message status-error" id="errorMessage">
-                    There was an error submitting your RSVP. Please try again.
-                </div>
-            </form>
-        </div>
-    </section>
+            </div>
+
+            <div class="form-group full-width">
+                <label class="form-label">Special Dietary Requirements</label>
+                <input type="text" class="form-input" id="dietary" placeholder="Any allergies or dietary preferences? (Optional)">
+            </div>
+
+            <div class="form-group full-width">
+                <label class="form-label">Message for the Couple</label>
+                <textarea class="form-input" id="message" rows="4" placeholder="Share your well wishes with us... (Optional)"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send RSVP</button>
+            
+            <div class="status-message status-success" id="successMessage">
+                🎉 Thank you for your RSVP! We can't wait to celebrate with you!
+            </div>
+            <div class="status-message status-error" id="errorMessage">
+                ❌ There was an error submitting your RSVP. Please try again.
+            </div>
+        </form>
+    </div>
+</section>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>

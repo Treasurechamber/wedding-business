@@ -1834,15 +1834,19 @@
         letter-spacing: 3px;
     }
 }
-        /* RSVP Form */
-        /* Ultra Modern RSVP Section */
+  /* ELEGANT WEDDING CARD RSVP SECTION */
 .rsvp-section {
-    padding: 8rem 0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 12rem 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 40%),
+        linear-gradient(135deg, #ffffff 0%, #fefefe 25%, #fdfdfd 50%, #ffffff 100%);
     position: relative;
     overflow: hidden;
 }
 
+/* Dreamy Floating Elements */
 .rsvp-section::before {
     content: '';
     position: absolute;
@@ -1850,73 +1854,145 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffd700' stroke-width='0.5' opacity='0.1'%3E%3Ccircle cx='25' cy='25' r='8'/%3E%3Ccircle cx='75' cy='75' r='12'/%3E%3Cpath d='M50 10 L55 25 L70 25 L58 35 L63 50 L50 40 L37 50 L42 35 L30 25 L45 25 Z'/%3E%3C/g%3E%3C/svg%3E");
+    animation: floatPattern 20s linear infinite;
     z-index: 1;
 }
 
-.rsvp-section .section-title {
-    color: white;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 200;
-    letter-spacing: 3px;
-    margin-bottom: 4rem;
-    position: relative;
-    z-index: 2;
-}
-
-.rsvp-section .section-title::after {
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-    width: 150px;
-    height: 2px;
-}
-
-.rsvp-form {
-    max-width: 700px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 4rem;
-    border-radius: 30px;
-    backdrop-filter: blur(20px);
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 2;
-    transition: all 0.4s ease;
-}
-
-.rsvp-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-        0 35px 70px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.rsvp-form::before {
+/* Soft Romantic Particles */
+.rsvp-section::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-    border-radius: 30px;
-    z-index: -1;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(255, 182, 193, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(240, 147, 251, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 50% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 25%);
+    animation: dreamyFloat 15s ease-in-out infinite;
+    z-index: 1;
 }
 
+.rsvp-section .section-title {
+    color: #2c3e50;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 200;
+    letter-spacing: 6px;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(45deg, #2c3e50, #667eea, #764ba2);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: elegantShimmer 8s ease-in-out infinite;
+    text-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+}
+
+.rsvp-section .section-title::before {
+    content: '✦';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 215, 0, 0.6);
+    font-size: 2rem;
+    animation: starTwinkle 4s ease-in-out infinite;
+}
+
+.rsvp-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), rgba(255, 182, 193, 0.4), transparent);
+    border-radius: 2px;
+    animation: titleGlow 5s ease-in-out infinite;
+}
+
+/* Wedding Card Container */
+.rsvp-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    padding: 5rem 4rem;
+    border-radius: 35px;
+    backdrop-filter: blur(25px);
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.08),
+        0 15px 40px rgba(255, 215, 0, 0.1),
+        0 5px 20px rgba(255, 182, 193, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -1px 0 rgba(255, 215, 0, 0.1);
+    position: relative;
+    z-index: 5;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+}
+
+/* Elegant Border Animation */
+.rsvp-form::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+        #ffd700 0%, 
+        #ffb6c1 25%, 
+        #667eea 50%, 
+        #f093fb 75%, 
+        #ffd700 100%);
+    background-size: 400% 400%;
+    border-radius: 38px;
+    z-index: -1;
+    animation: elegantBorder 10s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.rsvp-form:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+        0 45px 120px rgba(0, 0, 0, 0.12),
+        0 25px 60px rgba(255, 215, 0, 0.15),
+        0 10px 30px rgba(255, 182, 193, 0.08);
+}
+
+/* Romantic Corner Decorations */
+.rsvp-form::after {
+    content: '♡ ✦ ♡';
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    color: rgba(255, 215, 0, 0.3);
+    font-size: 1.5rem;
+    letter-spacing: 1rem;
+    animation: cornerSparkle 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Form Styling */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .form-group {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     position: relative;
 }
 
@@ -1926,93 +2002,109 @@
 
 .form-label {
     display: block;
-    margin-bottom: 1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    letter-spacing: 1px;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     position: relative;
+    font-family: 'Georgia', serif;
 }
 
 .form-label::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     left: 0;
-    width: 30px;
+    width: 50px;
     height: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #ffd700, #ffb6c1);
     border-radius: 2px;
+    animation: labelAccent 4s ease-in-out infinite;
 }
 
 .form-input,
 .form-select {
     width: 100%;
-    padding: 1.5rem 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
+    padding: 1.8rem 2.5rem;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 25px;
+    font-size: 1.1rem;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+    color: #2c3e50;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     font-family: 'Georgia', serif;
+    font-weight: 400;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .form-input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(44, 62, 80, 0.4);
     font-style: italic;
+    font-weight: 300;
 }
 
 .form-input:focus,
 .form-select:focus {
     outline: none;
-    border-color: rgba(102, 126, 234, 0.6);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 215, 0, 0.6);
+    background: rgba(255, 255, 255, 0.98);
     box-shadow: 
-        0 0 0 4px rgba(102, 126, 234, 0.1),
-        0 8px 25px rgba(102, 126, 234, 0.2);
-    transform: translateY(-2px);
+        0 0 0 6px rgba(255, 215, 0, 0.1),
+        0 15px 40px rgba(255, 215, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    transform: translateY(-3px);
 }
 
 .form-select {
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 1rem center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffd700' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 2rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
-    padding-right: 4rem;
+    padding-right: 5rem;
 }
 
 .form-select option {
-    background: #1a1a2e;
-    color: white;
+    background: white;
+    color: #2c3e50;
     padding: 1rem;
+    font-family: 'Georgia', serif;
 }
 
 .form-input[type="textarea"] {
     resize: vertical;
-    min-height: 120px;
-    font-family: 'Georgia', serif;
+    min-height: 140px;
+    line-height: 1.8;
 }
 
+/* Enchanted Submit Button */
 .submit-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #ffd700 0%, #ffb6c1 30%, #667eea 70%, #764ba2 100%);
     color: white;
-    padding: 1.8rem 4rem;
+    padding: 2.2rem 5rem;
     border: none;
-    border-radius: 25px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 2px;
+    border-radius: 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     width: 100%;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+    box-shadow: 
+        0 20px 50px rgba(255, 215, 0, 0.25),
+        0 10px 25px rgba(255, 182, 193, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    font-family: 'Georgia', serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn::before {
@@ -2022,8 +2114,11 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s ease;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left 0.8s ease;
 }
 
 .submit-btn:hover::before {
@@ -2031,150 +2126,269 @@
 }
 
 .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #7c8ef0 0%, #8458b8 50%, #f5a5ff 100%);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 30px 70px rgba(255, 215, 0, 0.35),
+        0 15px 35px rgba(255, 182, 193, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #ffe55c 0%, #ffc0cb 30%, #7c8ef0 70%, #8458b8 100%);
 }
 
 .submit-btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.01);
 }
 
 .submit-btn:disabled {
-    opacity: 0.6;
+    opacity: 0.7;
     cursor: not-allowed;
     transform: none;
-    background: linear-gradient(135deg, #666 0%, #888 100%);
+    background: linear-gradient(135deg, #ccc 0%, #999 100%);
 }
 
-/* Floating Animation Elements */
-.rsvp-form::after {
-    content: '✦';
-    position: absolute;
-    top: -10px;
-    right: 30px;
-    color: rgba(255, 255, 255, 0.1);
-    font-size: 2rem;
-    animation: floatSpin 8s ease-in-out infinite;
-}
-
+/* Floating Romantic Elements */
 .form-decoration {
     position: absolute;
-    color: rgba(255, 255, 255, 0.05);
-    font-size: 3rem;
+    color: rgba(255, 215, 0, 0.08);
+    font-size: 4rem;
     z-index: 0;
-    animation: floatSpin 10s ease-in-out infinite reverse;
+    animation: romanticFloat 12s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .form-decoration:nth-child(1) {
-    top: 20%;
-    left: -20px;
+    top: 15%;
+    left: -30px;
     animation-delay: 0s;
+    content: '♡';
 }
 
 .form-decoration:nth-child(2) {
-    bottom: 30%;
-    right: -30px;
-    animation-delay: 3s;
+    bottom: 20%;
+    right: -40px;
+    animation-delay: 6s;
+    content: '✦';
 }
 
-/* Status Messages - Modern Style */
+/* Status Messages - Elegant Style */
 .status-message {
-    padding: 1.5rem 2rem;
-    border-radius: 20px;
-    margin-top: 2rem;
+    padding: 2rem 3rem;
+    border-radius: 25px;
+    margin-top: 3rem;
     font-weight: 500;
     display: none;
-    backdrop-filter: blur(10px);
-    border: 1px solid;
-    animation: slideInMessage 0.5s ease-out;
+    backdrop-filter: blur(15px);
+    border: 2px solid;
+    animation: elegantSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: messageShimmer 2s ease-in-out infinite;
 }
 
 .status-success {
-    background: rgba(76, 175, 80, 0.1);
-    color: #4caf50;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    color: #2e7d32;
     border-color: rgba(76, 175, 80, 0.3);
-    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.1);
+    box-shadow: 
+        0 15px 40px rgba(76, 175, 80, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .status-error {
-    background: rgba(244, 67, 54, 0.1);
-    color: #f44336;
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(244, 67, 54, 0.05));
+    color: #c62828;
     border-color: rgba(244, 67, 54, 0.3);
-    box-shadow: 0 10px 25px rgba(244, 67, 54, 0.1);
+    box-shadow: 
+        0 15px 40px rgba(244, 67, 54, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* Animations */
-@keyframes floatSpin {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.1;
+/* ELEGANT ANIMATIONS */
+@keyframes elegantShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes starTwinkle {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: translateX(-50%) scale(1);
     }
-    50% {
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.2;
+    50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.2);
     }
 }
 
-@keyframes slideInMessage {
-    from {
+@keyframes titleGlow {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scaleX(1.3);
+    }
+}
+
+@keyframes elegantBorder {
+    0%, 100% { 
+        background-position: 0% 50%;
+        opacity: 0.7;
+    }
+    50% { 
+        background-position: 100% 50%;
+        opacity: 0.9;
+    }
+}
+
+@keyframes cornerSparkle {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.1);
+    }
+}
+
+@keyframes labelAccent {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: scaleX(1);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scaleX(1.2);
+    }
+}
+
+@keyframes romanticFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.08;
+    }
+    33% { 
+        transform: translateY(-30px) rotate(120deg);
+        opacity: 0.15;
+    }
+    66% { 
+        transform: translateY(-15px) rotate(240deg);
+        opacity: 0.12;
+    }
+}
+
+@keyframes elegantSlideIn {
+    0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px) scale(0.95);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
-/* Mobile Responsive */
+@keyframes messageShimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+@keyframes floatPattern {
+    0% { transform: translateY(0px) translateX(0px); }
+    100% { transform: translateY(-20px) translateX(20px); }
+}
+
+@keyframes dreamyFloat {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-20px) scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* MOBILE ELEGANCE */
 @media (max-width: 768px) {
     .rsvp-section {
-        padding: 5rem 0;
+        padding: 8rem 0;
+    }
+    
+    .rsvp-section .section-title {
+        margin-bottom: 4rem;
+        letter-spacing: 3px;
+        font-size: clamp(2.5rem, 8vw, 4rem);
     }
     
     .rsvp-form {
-        margin: 0 1rem;
-        padding: 2.5rem 2rem;
-        border-radius: 25px;
+        margin: 0 1.5rem;
+        padding: 3.5rem 2.5rem;
+        border-radius: 30px;
+    }
+    
+    .rsvp-form::after {
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.8rem;
     }
     
     .form-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     
     .form-group {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
     
     .form-input,
     .form-select {
-        padding: 1.2rem 1.5rem;
+        padding: 1.5rem 2rem;
         font-size: 1rem;
+        border-radius: 20px;
+    }
+    
+    .form-select {
+        padding-right: 4rem;
+        background-position: right 1.5rem center;
     }
     
     .submit-btn {
-        padding: 1.5rem 3rem;
+        padding: 1.8rem 4rem;
         font-size: 1.1rem;
+        letter-spacing: 2px;
+        border-radius: 30px;
     }
     
     .form-decoration {
-        display: none;
+        font-size: 2.5rem;
+        opacity: 0.05;
+    }
+    
+    .status-message {
+        padding: 1.5rem 2rem;
+        font-size: 1rem;
+        border-radius: 20px;
     }
 }
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
         @keyframes slideIn {
             from {

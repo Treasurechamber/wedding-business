@@ -1834,19 +1834,16 @@
         letter-spacing: 3px;
     }
 }
-/* ELEGANT WEDDING CARD RSVP SECTION */
+/* BOTANICAL WEDDING CARD RSVP SECTION */
 .rsvp-section {
     padding: 12rem 0;
     background: 
-        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.03) 0%, transparent 40%),
         linear-gradient(135deg, #ffffff 0%, #fefefe 25%, #fdfdfd 50%, #ffffff 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Simple Dreamy Floral Elements */
+/* Botanical Branches Background */
 .rsvp-section::before {
     content: '';
     position: absolute;
@@ -1854,12 +1851,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffb6c1' stroke-width='0.3' opacity='0.05'%3E%3Ccircle cx='20' cy='20' r='6' fill='%23ffb6c1' opacity='0.03'/%3E%3Cpath d='M15 20 Q20 15 25 20 Q20 25 15 20' stroke='%23ff69b4' stroke-width='0.2'/%3E%3Ccircle cx='60' cy='15' r='3' stroke='%23ffd700' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M40 60 C40 58, 45 58, 45 60 C45 58, 50 58, 50 60 C47 65, 42 67, 40 60' fill='%23ffb6c1' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
-    animation: gentleFloat 30s linear infinite;
+    background: url("data:image/svg+xml,%3Csvg width='400' height='300' viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1.5' opacity='0.12'%3E%3C!-- Left hanging branch ---%3E%3Cpath d='M0 0 Q20 30 15 60 Q25 90 10 120 Q30 150 5 180' stroke-width='2'/%3E%3C!-- Leaves on left branch ---%3E%3Cpath d='M12 25 Q20 20 25 30 Q18 35 12 25' fill='%2365734C' opacity='0.08'/%3E%3Cpath d='M18 45 Q25 40 30 50 Q23 55 18 45' fill='%2365734C' opacity='0.1'/%3E%3Cpath d='M8 65 Q15 60 20 70 Q13 75 8 65' fill='%2365734C' opacity='0.09'/%3E%3Cpath d='M22 85 Q29 80 34 90 Q27 95 22 85' fill='%2365734C' opacity='0.07'/%3E%3Cpath d='M6 105 Q13 100 18 110 Q11 115 6 105' fill='%2365734C' opacity='0.08'/%3E%3C!-- Right hanging branch ---%3E%3Cpath d='M400 0 Q380 25 385 55 Q375 85 390 115 Q370 145 395 175' stroke-width='2'/%3E%3C!-- Leaves on right branch ---%3E%3Cpath d='M388 20 Q380 15 375 25 Q382 30 388 20' fill='%2365734C' opacity='0.09'/%3E%3Cpath d='M382 40 Q375 35 370 45 Q377 50 382 40' fill='%2365734C' opacity='0.08'/%3E%3Cpath d='M392 60 Q385 55 380 65 Q387 70 392 60' fill='%2365734C' opacity='0.1'/%3E%3Cpath d='M378 80 Q371 75 366 85 Q373 90 378 80' fill='%2365734C' opacity='0.07'/%3E%3Cpath d='M394 100 Q387 95 382 105 Q389 110 394 100' fill='%2365734C' opacity='0.09'/%3E%3C!-- Small floating leaves ---%3E%3Cpath d='M100 50 Q105 45 110 55 Q103 60 100 50' fill='%2365734C' opacity='0.04'/%3E%3Cpath d='M300 80 Q305 75 310 85 Q303 90 300 80' fill='%2365734C' opacity='0.05'/%3E%3Cpath d='M150 120 Q155 115 160 125 Q153 130 150 120' fill='%2365734C' opacity='0.03'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23728B5A' stroke-width='1' opacity='0.08'%3E%3C!-- Top center branch ---%3E%3Cpath d='M150 0 Q160 15 155 30 Q165 45 150 60 Q170 75 145 90' stroke-width='1.5'/%3E%3C!-- Small leaves ---%3E%3Cpath d='M158 12 Q163 8 168 17 Q161 20 158 12' fill='%23728B5A' opacity='0.06'/%3E%3Cpath d='M152 25 Q147 20 142 30 Q149 33 152 25' fill='%23728B5A' opacity='0.07'/%3E%3Cpath d='M162 38 Q167 33 172 43 Q165 46 162 38' fill='%23728B5A' opacity='0.05'/%3E%3Cpath d='M148 52 Q143 47 138 57 Q145 60 148 52' fill='%23728B5A' opacity='0.08'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: left top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 400px 300px, 300px 200px;
+    animation: gentleSway 20s ease-in-out infinite;
     z-index: 1;
 }
 
-/* Soft Simple Particles */
+/* Soft Botanical Particles */
 .rsvp-section::after {
     content: '';
     position: absolute;
@@ -1868,9 +1869,10 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 182, 193, 0.06) 0%, transparent 30%),
-        radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.04) 0%, transparent 25%);
-    animation: simpleFloat 20s ease-in-out infinite;
+        radial-gradient(circle at 20% 30%, rgba(101, 115, 76, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(114, 139, 90, 0.02) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(101, 115, 76, 0.015) 0%, transparent 30%);
+    animation: botanicalFloat 25s ease-in-out infinite;
     z-index: 1;
 }
 
@@ -1884,24 +1886,26 @@
     z-index: 5;
     text-align: center;
     font-family: 'Georgia', serif;
-    background: linear-gradient(45deg, #2c3e50, #667eea, #764ba2);
+    background: linear-gradient(45deg, #2c3e50, #65734C, #2c3e50);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: elegantShimmer 8s ease-in-out infinite;
-    text-shadow: 0 0 50px rgba(255, 215, 0, 0.1);
+    animation: botanicalShimmer 8s ease-in-out infinite;
 }
 
 .rsvp-section .section-title::before {
-    content: '🌸';
+    content: '';
     position: absolute;
-    top: -50px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255, 182, 193, 0.6);
-    font-size: 2rem;
-    animation: gentleTwinkle 4s ease-in-out infinite;
+    width: 80px;
+    height: 30px;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='30' viewBox='0 0 80 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.4'%3E%3Cpath d='M10 15 Q20 5 30 15 Q40 5 50 15 Q60 5 70 15' stroke-width='1.5'/%3E%3Cpath d='M15 12 Q18 8 22 12 Q18 16 15 12' fill='%2365734C' opacity='0.3'/%3E%3Cpath d='M35 12 Q38 8 42 12 Q38 16 35 12' fill='%2365734C' opacity='0.3'/%3E%3Cpath d='M55 12 Q58 8 62 12 Q58 16 55 12' fill='%2365734C' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: leafGarland 6s ease-in-out infinite;
 }
 
 .rsvp-section .section-title::after {
@@ -1912,74 +1916,71 @@
     transform: translateX(-50%);
     width: 200px;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 182, 193, 0.5), 
-        rgba(255, 215, 0, 0.4), 
-        transparent);
+    background: linear-gradient(90deg, transparent, rgba(101, 115, 76, 0.4), rgba(114, 139, 90, 0.3), transparent);
     border-radius: 2px;
-    animation: simpleGlow 5s ease-in-out infinite;
+    animation: botanicalGlow 5s ease-in-out infinite;
 }
 
-/* Wedding Card Container */
+/* Botanical Wedding Card Container */
 .rsvp-form {
     max-width: 800px;
     margin: 0 auto;
     background: 
-        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
-    border: 3px solid transparent;
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 2px solid transparent;
     background-clip: padding-box;
     padding: 5rem 4rem;
-    border-radius: 35px;
-    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
     box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.08),
-        0 15px 40px rgba(255, 215, 0, 0.1),
-        0 5px 20px rgba(255, 182, 193, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        inset 0 -1px 0 rgba(255, 215, 0, 0.1);
+        0 25px 60px rgba(0, 0, 0, 0.08),
+        0 10px 30px rgba(101, 115, 76, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(101, 115, 76, 0.05);
     position: relative;
     z-index: 5;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s ease;
     overflow: hidden;
 }
 
-/* Simple Border Animation */
+/* Botanical Border Animation */
 .rsvp-form::before {
     content: '';
     position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
     background: linear-gradient(45deg, 
-        #ffd700 0%, 
-        #ffb6c1 50%, 
-        #ffd700 100%);
+        #65734C 0%, 
+        #728B5A 50%, 
+        #65734C 100%);
     background-size: 300% 300%;
-    border-radius: 38px;
+    border-radius: 22px;
     z-index: -1;
-    animation: simpleBorder 8s ease-in-out infinite;
+    animation: botanicalBorder 10s ease-in-out infinite;
     opacity: 0.6;
 }
 
 .rsvp-form:hover {
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-5px) scale(1.005);
     box-shadow: 
-        0 45px 120px rgba(0, 0, 0, 0.12),
-        0 25px 60px rgba(255, 215, 0, 0.15),
-        0 10px 30px rgba(255, 182, 193, 0.08);
+        0 35px 80px rgba(0, 0, 0, 0.12),
+        0 15px 40px rgba(101, 115, 76, 0.1);
 }
 
-/* Simple Corner Decoration */
+/* Botanical Corner Decorations */
 .rsvp-form::after {
-    content: '💕';
+    content: '';
     position: absolute;
     top: 2rem;
     right: 2.5rem;
-    color: rgba(255, 182, 193, 0.4);
-    font-size: 1.5rem;
-    animation: gentleSparkle 6s ease-in-out infinite;
+    width: 60px;
+    height: 40px;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='40' viewBox='0 0 60 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.3'%3E%3Cpath d='M50 5 Q45 15 50 25 Q40 35 45 40' stroke-width='1.5'/%3E%3Cpath d='M48 10 Q52 8 55 12 Q51 15 48 10' fill='%2365734C' opacity='0.2'/%3E%3Cpath d='M47 18 Q51 16 54 20 Q50 23 47 18' fill='%2365734C' opacity='0.25'/%3E%3Cpath d='M42 28 Q46 26 49 30 Q45 33 42 28' fill='%2365734C' opacity='0.2'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: botanicalCorner 8s ease-in-out infinite;
     z-index: 1;
 }
 
@@ -2019,28 +2020,28 @@
     left: 0;
     width: 50px;
     height: 2px;
-    background: linear-gradient(45deg, #ffb6c1, #ffd700);
+    background: linear-gradient(45deg, #65734C, #728B5A);
     border-radius: 2px;
-    animation: simpleLabelAccent 4s ease-in-out infinite;
+    animation: botanicalLabelAccent 4s ease-in-out infinite;
 }
 
 .form-input,
 .form-select {
     width: 100%;
     padding: 1.8rem 2.5rem;
-    border: 2px solid rgba(255, 215, 0, 0.2);
-    border-radius: 25px;
+    border: 2px solid rgba(101, 115, 76, 0.15);
+    border-radius: 15px;
     font-size: 1.1rem;
     background: 
-        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 1) 100%);
     color: #2c3e50;
     backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s ease;
     font-family: 'Georgia', serif;
     font-weight: 400;
     box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.03),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 5px 20px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .form-input::placeholder {
@@ -2052,18 +2053,18 @@
 .form-input:focus,
 .form-select:focus {
     outline: none;
-    border-color: rgba(255, 182, 193, 0.6);
-    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(101, 115, 76, 0.4);
+    background: rgba(255, 255, 255, 1);
     box-shadow: 
-        0 0 0 4px rgba(255, 182, 193, 0.1),
-        0 10px 30px rgba(255, 182, 193, 0.15),
+        0 0 0 4px rgba(101, 115, 76, 0.08),
+        0 10px 30px rgba(101, 115, 76, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 1);
     transform: translateY(-2px);
 }
 
 .form-select {
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffd700' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2365734C' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 2rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
@@ -2083,13 +2084,13 @@
     line-height: 1.8;
 }
 
-/* Simple Wedding Submit Button */
+/* Botanical Submit Button */
 .submit-btn {
-    background: linear-gradient(135deg, #ffb6c1 0%, #ffd700 50%, #ffb6c1 100%);
+    background: linear-gradient(135deg, #65734C 0%, #728B5A 50%, #65734C 100%);
     color: white;
     padding: 2.2rem 5rem;
     border: none;
-    border-radius: 35px;
+    border-radius: 25px;
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: 3px;
@@ -2100,10 +2101,10 @@
     position: relative;
     overflow: hidden;
     box-shadow: 
-        0 15px 40px rgba(255, 182, 193, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 15px 40px rgba(101, 115, 76, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     font-family: 'Georgia', serif;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn::before {
@@ -2115,7 +2116,7 @@
     height: 100%;
     background: linear-gradient(90deg, 
         transparent, 
-        rgba(255, 255, 255, 0.4), 
+        rgba(255, 255, 255, 0.3), 
         transparent);
     transition: left 0.8s ease;
 }
@@ -2127,62 +2128,60 @@
 .submit-btn:hover {
     transform: translateY(-3px) scale(1.01);
     box-shadow: 
-        0 20px 50px rgba(255, 182, 193, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    background: linear-gradient(135deg, #ffc0cb 0%, #ffe55c 50%, #ffc0cb 100%);
+        0 20px 50px rgba(101, 115, 76, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #728B5A 0%, #7A9562 50%, #728B5A 100%);
 }
 
 .submit-btn:active {
-    transform: translateY(-2px) scale(1.01);
+    transform: translateY(-1px) scale(1.005);
 }
 
 .submit-btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
-    background: linear-gradient(135deg, #ccc 0%, #999 100%);
+    background: linear-gradient(135deg, #999 0%, #aaa 100%);
 }
 
-/* Simple Floating Elements */
+/* Floating Botanical Elements */
 .form-decoration {
     position: absolute;
-    color: rgba(255, 182, 193, 0.08);
-    font-size: 3rem;
     z-index: 0;
-    animation: simpleWeddingFloat 12s ease-in-out infinite;
+    animation: botanicalWeddingFloat 15s ease-in-out infinite;
     pointer-events: none;
 }
 
 .form-decoration:nth-child(1) {
-    top: 20%;
-    left: -30px;
+    top: 15%;
+    left: -40px;
+    width: 60px;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='80' viewBox='0 0 60 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.06'%3E%3Cpath d='M30 0 Q25 20 30 40 Q20 60 30 80' stroke-width='2'/%3E%3Cpath d='M28 15 Q32 12 35 18 Q31 22 28 15' fill='%2365734C' opacity='0.04'/%3E%3Cpath d='M25 25 Q29 22 32 28 Q28 32 25 25' fill='%2365734C' opacity='0.05'/%3E%3Cpath d='M22 45 Q26 42 29 48 Q25 52 22 45' fill='%2365734C' opacity='0.04'/%3E%3Cpath d='M27 55 Q31 52 34 58 Q30 62 27 55' fill='%2365734C' opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     animation-delay: 0s;
 }
 
-.form-decoration:nth-child(1)::before {
-    content: '🌸';
-}
-
 .form-decoration:nth-child(2) {
-    bottom: 25%;
-    right: -30px;
-    animation-delay: 6s;
+    bottom: 20%;
+    right: -40px;
+    width: 50px;
+    height: 70px;
+    background: url("data:image/svg+xml,%3Csvg width='50' height='70' viewBox='0 0 50 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23728B5A' stroke-width='1' opacity='0.05'%3E%3Cpath d='M25 0 Q30 18 25 35 Q35 50 25 70' stroke-width='1.5'/%3E%3Cpath d='M27 12 Q31 9 34 15 Q30 19 27 12' fill='%23728B5A' opacity='0.04'/%3E%3Cpath d='M22 22 Q26 19 29 25 Q25 29 22 22' fill='%23728B5A' opacity='0.05'/%3E%3Cpath d='M30 38 Q34 35 37 41 Q33 45 30 38' fill='%23728B5A' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    animation-delay: 8s;
 }
 
-.form-decoration:nth-child(2)::before {
-    content: '💕';
-}
-
-/* Status Messages - Elegant Style */
+/* Status Messages - Botanical Style */
 .status-message {
     padding: 2rem 3rem;
-    border-radius: 25px;
+    border-radius: 15px;
     margin-top: 3rem;
     font-weight: 500;
     display: none;
     backdrop-filter: blur(15px);
     border: 2px solid;
-    animation: elegantSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: botanicalSlideIn 0.8s ease;
     font-family: 'Georgia', serif;
     font-size: 1.1rem;
     letter-spacing: 1px;
@@ -2191,59 +2190,53 @@
     overflow: hidden;
 }
 
-.status-message::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: messageShimmer 2s ease-in-out infinite;
-}
-
 .status-success {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
-    color: #2e7d32;
-    border-color: rgba(76, 175, 80, 0.3);
+    background: linear-gradient(135deg, rgba(101, 115, 76, 0.08), rgba(114, 139, 90, 0.05));
+    color: #2d5016;
+    border-color: rgba(101, 115, 76, 0.3);
     box-shadow: 
-        0 15px 40px rgba(76, 175, 80, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 10px 30px rgba(101, 115, 76, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .status-error {
-    background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(244, 67, 54, 0.05));
-    color: #c62828;
-    border-color: rgba(244, 67, 54, 0.3);
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.08), rgba(220, 53, 69, 0.05));
+    color: #721c24;
+    border-color: rgba(220, 53, 69, 0.3);
     box-shadow: 
-        0 15px 40px rgba(244, 67, 54, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 10px 30px rgba(220, 53, 69, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* SIMPLE WEDDING ANIMATIONS */
-@keyframes gentleTwinkle {
+/* BOTANICAL ANIMATIONS */
+@keyframes botanicalShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes leafGarland {
     0%, 100% { 
-        opacity: 0.6; 
+        opacity: 0.4; 
         transform: translateX(-50%) scale(1);
     }
     50% { 
-        opacity: 0.9; 
-        transform: translateX(-50%) scale(1.1);
+        opacity: 0.7; 
+        transform: translateX(-50%) scale(1.05);
     }
 }
 
-@keyframes simpleGlow {
+@keyframes botanicalGlow {
     0%, 100% { 
-        opacity: 0.5; 
+        opacity: 0.4; 
         transform: translateX(-50%) scaleX(1);
     }
     50% { 
-        opacity: 0.8; 
+        opacity: 0.7; 
         transform: translateX(-50%) scaleX(1.2);
     }
 }
 
-@keyframes simpleBorder {
+@keyframes botanicalBorder {
     0%, 100% { 
         background-position: 0% 50%;
         opacity: 0.6;
@@ -2254,18 +2247,18 @@
     }
 }
 
-@keyframes gentleSparkle {
+@keyframes botanicalCorner {
     0%, 100% { 
-        opacity: 0.4; 
+        opacity: 0.3; 
         transform: scale(1);
     }
     50% { 
-        opacity: 0.7; 
-        transform: scale(1.1);
+        opacity: 0.5; 
+        transform: scale(1.05);
     }
 }
 
-@keyframes simpleLabelAccent {
+@keyframes botanicalLabelAccent {
     0%, 100% { 
         opacity: 0.6; 
         transform: scaleX(1);
@@ -2276,37 +2269,55 @@
     }
 }
 
-@keyframes simpleWeddingFloat {
+@keyframes botanicalWeddingFloat {
     0%, 100% { 
         transform: translateY(0px) rotate(0deg);
+        opacity: 0.06;
+    }
+    25% {
+        transform: translateY(-15px) rotate(2deg);
         opacity: 0.08;
     }
     50% { 
-        transform: translateY(-20px) rotate(180deg);
-        opacity: 0.12;
+        transform: translateY(-8px) rotate(-1deg);
+        opacity: 0.1;
+    }
+    75% {
+        transform: translateY(-20px) rotate(1deg);
+        opacity: 0.07;
     }
 }
 
-@keyframes gentleFloat {
-    0% { transform: translateY(0px) translateX(0px); }
-    100% { transform: translateY(-10px) translateX(10px); }
-}
-
-@keyframes simpleFloat {
+@keyframes gentleSway {
     0%, 100% { 
-        transform: translateY(0px) scale(1);
-        opacity: 0.4;
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) translateX(2px) rotate(0.5deg);
     }
     50% { 
-        transform: translateY(-15px) scale(1.05);
-        opacity: 0.6;
+        transform: translateY(-3px) translateX(0px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) translateX(-2px) rotate(-0.5deg);
     }
 }
 
-@keyframes elegantSlideIn {
+@keyframes botanicalFloat {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.02;
+    }
+    50% { 
+        transform: translateY(-10px) scale(1.02);
+        opacity: 0.04;
+    }
+}
+
+@keyframes botanicalSlideIn {
     0% {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        transform: translateY(20px) scale(0.98);
     }
     100% {
         opacity: 1;
@@ -2314,29 +2325,7 @@
     }
 }
 
-@keyframes messageShimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-@keyframes floatPattern {
-    0% { transform: translateY(0px) translateX(0px); }
-    100% { transform: translateY(-20px) translateX(20px); }
-}
-
-@keyframes dreamyFloat {
-    0%, 100% { 
-        transform: translateY(0px) scale(1);
-        opacity: 0.6;
-    }
-    50% { 
-        transform: translateY(-20px) scale(1.05);
-        opacity: 0.8;
-    }
-}
-
-/* MOBILE ELEGANCE */
+/* BOTANICAL MOBILE ELEGANCE */
 @media (max-width: 768px) {
     .rsvp-section {
         padding: 8rem 0;
@@ -2351,14 +2340,15 @@
     .rsvp-form {
         margin: 0 1.5rem;
         padding: 3.5rem 2.5rem;
-        border-radius: 30px;
+        border-radius: 18px;
     }
     
     .rsvp-form::after {
         top: 1.5rem;
         right: 2rem;
-        font-size: 1.2rem;
-        content: '💕';
+        width: 45px;
+        height: 30px;
+        background-size: 45px 30px;
     }
     
     .form-row {
@@ -2374,7 +2364,7 @@
     .form-select {
         padding: 1.5rem 2rem;
         font-size: 1rem;
-        border-radius: 20px;
+        border-radius: 12px;
     }
     
     .form-select {
@@ -2386,18 +2376,31 @@
         padding: 1.8rem 4rem;
         font-size: 1.1rem;
         letter-spacing: 2px;
-        border-radius: 30px;
+        border-radius: 20px;
     }
     
     .form-decoration {
-        font-size: 2.5rem;
-        opacity: 0.05;
+        opacity: 0.03;
+        width: 40px;
+        height: 50px;
+    }
+    
+    .form-decoration:nth-child(1) {
+        left: -25px;
+        background-size: 40px 50px;
+    }
+    
+    .form-decoration:nth-child(2) {
+        right: -25px;
+        width: 35px;
+        height: 45px;
+        background-size: 35px 45px;
     }
     
     .status-message {
         padding: 1.5rem 2rem;
         font-size: 1rem;
-        border-radius: 20px;
+        border-radius: 12px;
     }
 }
 

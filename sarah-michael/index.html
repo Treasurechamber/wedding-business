@@ -1480,15 +1480,16 @@
     }
 }
      /* Countdown */
-        /* Ultra Futuristic Countdown Section */
+     /* BOTANICAL WEDDING COUNTDOWN SECTION */
 .countdown-section {
     padding: 10rem 0;
-    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0c0c0c 100%);
+    background: 
+        linear-gradient(135deg, #ffffff 0%, #fefefe 25%, #fdfdfd 50%, #ffffff 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Animated Background Particles */
+/* Botanical Branches Background for Countdown */
 .countdown-section::before {
     content: '';
     position: absolute;
@@ -1496,14 +1497,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(240, 147, 251, 0.05) 0%, transparent 40%);
-    animation: particleFloat 20s ease-in-out infinite;
+    background: url("data:image/svg+xml,%3Csvg width='400' height='300' viewBox='0 0 400 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1.5' opacity='0.1'%3E%3C!-- Left hanging branch ---%3E%3Cpath d='M0 0 Q20 30 15 60 Q25 90 10 120 Q30 150 5 180' stroke-width='2'/%3E%3C!-- Leaves on left branch ---%3E%3Cpath d='M12 25 Q20 20 25 30 Q18 35 12 25' fill='%2365734C' opacity='0.06'/%3E%3Cpath d='M18 45 Q25 40 30 50 Q23 55 18 45' fill='%2365734C' opacity='0.08'/%3E%3Cpath d='M8 65 Q15 60 20 70 Q13 75 8 65' fill='%2365734C' opacity='0.07'/%3E%3Cpath d='M22 85 Q29 80 34 90 Q27 95 22 85' fill='%2365734C' opacity='0.05'/%3E%3Cpath d='M6 105 Q13 100 18 110 Q11 115 6 105' fill='%2365734C' opacity='0.06'/%3E%3C!-- Right hanging branch ---%3E%3Cpath d='M400 0 Q380 25 385 55 Q375 85 390 115 Q370 145 395 175' stroke-width='2'/%3E%3C!-- Leaves on right branch ---%3E%3Cpath d='M388 20 Q380 15 375 25 Q382 30 388 20' fill='%2365734C' opacity='0.07'/%3E%3Cpath d='M382 40 Q375 35 370 45 Q377 50 382 40' fill='%2365734C' opacity='0.06'/%3E%3Cpath d='M392 60 Q385 55 380 65 Q387 70 392 60' fill='%2365734C' opacity='0.08'/%3E%3Cpath d='M378 80 Q371 75 366 85 Q373 90 378 80' fill='%2365734C' opacity='0.05'/%3E%3Cpath d='M394 100 Q387 95 382 105 Q389 110 394 100' fill='%2365734C' opacity='0.07'/%3E%3C!-- Center hanging branch ---%3E%3Cpath d='M200 0 Q190 20 200 40 Q210 60 195 80 Q205 100 200 120' stroke-width='1.5'/%3E%3Cpath d='M195 15 Q200 10 205 15 Q200 20 195 15' fill='%2365734C' opacity='0.06'/%3E%3Cpath d='M205 35 Q210 30 215 35 Q210 40 205 35' fill='%2365734C' opacity='0.05'/%3E%3Cpath d='M190 55 Q195 50 200 55 Q195 60 190 55' fill='%2365734C' opacity='0.07'/%3E%3C!-- Small floating leaves ---%3E%3Cpath d='M100 50 Q105 45 110 55 Q103 60 100 50' fill='%2365734C' opacity='0.03'/%3E%3Cpath d='M300 80 Q305 75 310 85 Q303 90 300 80' fill='%2365734C' opacity='0.04'/%3E%3Cpath d='M150 120 Q155 115 160 125 Q153 130 150 120' fill='%2365734C' opacity='0.02'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='300' height='200' viewBox='0 0 300 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23728B5A' stroke-width='1' opacity='0.06'%3E%3C!-- Top center branch ---%3E%3Cpath d='M150 0 Q160 15 155 30 Q165 45 150 60 Q170 75 145 90' stroke-width='1.5'/%3E%3C!-- Small leaves ---%3E%3Cpath d='M158 12 Q163 8 168 17 Q161 20 158 12' fill='%23728B5A' opacity='0.04'/%3E%3Cpath d='M152 25 Q147 20 142 30 Q149 33 152 25' fill='%23728B5A' opacity='0.05'/%3E%3Cpath d='M162 38 Q167 33 172 43 Q165 46 162 38' fill='%23728B5A' opacity='0.03'/%3E%3Cpath d='M148 52 Q143 47 138 57 Q145 60 148 52' fill='%23728B5A' opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: left top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 400px 300px, 300px 200px;
+    animation: countdownSway 25s ease-in-out infinite;
     z-index: 1;
 }
 
+/* Soft Botanical Particles for Countdown */
 .countdown-section::after {
     content: '';
     position: absolute;
@@ -1511,37 +1514,45 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(101, 115, 76, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(114, 139, 90, 0.015) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(101, 115, 76, 0.01) 0%, transparent 30%);
+    animation: countdownBotanicalFloat 30s ease-in-out infinite;
     z-index: 1;
 }
 
 .countdown-section .section-title {
-    color: white;
+    color: #2c3e50;
     font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 100;
+    font-weight: 200;
     letter-spacing: 6px;
     margin-bottom: 6rem;
     text-transform: uppercase;
     position: relative;
-    z-index: 3;
-    background: linear-gradient(45deg, #ffffff, #667eea, #764ba2, #f093fb);
-    background-size: 400% 400%;
+    z-index: 5;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(45deg, #2c3e50, #65734C, #2c3e50);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 8s ease-in-out infinite;
+    animation: countdownBotanicalShimmer 8s ease-in-out infinite;
 }
 
 .countdown-section .section-title::before {
     content: '';
     position: absolute;
-    top: -30px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.8), transparent);
-    animation: pulseGlow 3s ease-in-out infinite;
+    width: 120px;
+    height: 30px;
+    background: url("data:image/svg+xml,%3Csvg width='120' height='30' viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.3'%3E%3Cpath d='M20 15 Q30 5 40 15 Q50 5 60 15 Q70 5 80 15 Q90 5 100 15' stroke-width='1.5'/%3E%3Cpath d='M25 12 Q28 8 32 12 Q28 16 25 12' fill='%2365734C' opacity='0.25'/%3E%3Cpath d='M45 12 Q48 8 52 12 Q48 16 45 12' fill='%2365734C' opacity='0.25'/%3E%3Cpath d='M65 12 Q68 8 72 12 Q68 16 65 12' fill='%2365734C' opacity='0.25'/%3E%3Cpath d='M85 12 Q88 8 92 12 Q88 16 85 12' fill='%2365734C' opacity='0.25'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: countdownLeafGarland 6s ease-in-out infinite;
 }
 
 .countdown-section .section-title::after {
@@ -1551,12 +1562,13 @@
     left: 50%;
     transform: translateX(-50%);
     width: 250px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(240, 147, 251, 0.6), transparent);
-    animation: pulseGlow 3s ease-in-out infinite 1.5s;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(101, 115, 76, 0.3), rgba(114, 139, 90, 0.25), transparent);
+    border-radius: 2px;
+    animation: countdownBotanicalGlow 5s ease-in-out infinite;
 }
 
-/* Revolutionary Countdown Container */
+/* Botanical Countdown Container */
 .countdown-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1564,21 +1576,26 @@
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    z-index: 3;
+    z-index: 5;
     padding: 0 2rem;
 }
 
-/* Ultra-Modern Countdown Items */
+/* Botanical Countdown Items */
 .countdown-item {
     position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 2px solid rgba(101, 115, 76, 0.12);
+    border-radius: 20px;
     padding: 3rem 2rem;
     backdrop-filter: blur(20px);
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.5s ease;
     cursor: pointer;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.06),
+        0 8px 25px rgba(101, 115, 76, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .countdown-item::before {
@@ -1589,12 +1606,13 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.1) 0%, 
-        rgba(118, 75, 162, 0.1) 50%, 
-        rgba(240, 147, 251, 0.1) 100%);
+        rgba(101, 115, 76, 0.05) 0%, 
+        rgba(114, 139, 90, 0.03) 50%, 
+        rgba(101, 115, 76, 0.05) 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: -1;
+    border-radius: 20px;
 }
 
 .countdown-item:hover::before {
@@ -1602,29 +1620,29 @@
 }
 
 .countdown-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(102, 126, 234, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(101, 115, 76, 0.25);
     box-shadow: 
-        0 25px 50px rgba(102, 126, 234, 0.2),
-        0 0 100px rgba(240, 147, 251, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 30px 70px rgba(0, 0, 0, 0.1),
+        0 15px 35px rgba(101, 115, 76, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
-/* Holographic Number Display */
+/* Botanical Number Display */
 .countdown-number {
     font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 100;
+    font-weight: 200;
     display: block;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #ffffff, #667eea, #764ba2);
+    background: linear-gradient(45deg, #2c3e50, #65734C, #728B5A);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: holographicShine 4s ease-in-out infinite;
+    animation: countdownBotanicalShine 6s ease-in-out infinite;
     position: relative;
-    text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
     line-height: 1;
+    font-family: 'Georgia', serif;
 }
 
 .countdown-number::before {
@@ -1632,72 +1650,88 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(45deg, rgba(102, 126, 234, 0.3), rgba(240, 147, 251, 0.3));
+    background: linear-gradient(45deg, rgba(101, 115, 76, 0.2), rgba(114, 139, 90, 0.15));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: blur(2px);
+    filter: blur(1px);
     z-index: -1;
-    animation: glowPulse 2s ease-in-out infinite;
+    animation: countdownGlowPulse 3s ease-in-out infinite;
 }
 
-/* Elegant Labels */
+/* Elegant Botanical Labels */
 .countdown-label {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(44, 62, 80, 0.8);
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-weight: 300;
+    font-weight: 500;
     position: relative;
     margin-top: 1rem;
+    font-family: 'Georgia', serif;
 }
 
 .countdown-label::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 40px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.6), transparent);
-    animation: labelGlow 3s ease-in-out infinite;
+    background: linear-gradient(90deg, transparent, rgba(101, 115, 76, 0.4), transparent);
+    animation: countdownLabelGlow 4s ease-in-out infinite;
 }
 
-/* Floating Elements */
+/* Floating Botanical Elements for Countdown */
 .countdown-floating-element {
     position: absolute;
-    color: rgba(255, 255, 255, 0.05);
-    font-size: 2rem;
-    z-index: 0;
-    animation: floatSpin 15s linear infinite;
+    z-index: 2;
+    animation: countdownBotanicalWeddingFloat 20s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .countdown-floating-element:nth-child(1) {
-    top: 15%;
-    left: 10%;
+    top: 10%;
+    left: 5%;
+    width: 40px;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg width='40' height='60' viewBox='0 0 40 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.04'%3E%3Cpath d='M20 0 Q15 15 20 30 Q12 45 20 60' stroke-width='1.5'/%3E%3Cpath d='M18 12 Q22 9 25 15 Q21 19 18 12' fill='%2365734C' opacity='0.03'/%3E%3Cpath d='M15 25 Q19 22 22 28 Q18 32 15 25' fill='%2365734C' opacity='0.04'/%3E%3Cpath d='M17 40 Q21 37 24 43 Q20 47 17 40' fill='%2365734C' opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     animation-delay: 0s;
 }
 
 .countdown-floating-element:nth-child(2) {
-    top: 25%;
-    right: 15%;
+    top: 15%;
+    right: 8%;
+    width: 35px;
+    height: 50px;
+    background: url("data:image/svg+xml,%3Csvg width='35' height='50' viewBox='0 0 35 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23728B5A' stroke-width='1' opacity='0.04'%3E%3Cpath d='M17 0 Q22 12 17 25 Q25 37 17 50' stroke-width='1.5'/%3E%3Cpath d='M19 10 Q23 7 26 13 Q22 17 19 10' fill='%23728B5A' opacity='0.03'/%3E%3Cpath d='M14 22 Q18 19 21 25 Q17 29 14 22' fill='%23728B5A' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     animation-delay: 5s;
 }
 
 .countdown-floating-element:nth-child(3) {
-    bottom: 20%;
+    bottom: 15%;
     left: 8%;
+    width: 30px;
+    height: 45px;
+    background: url("data:image/svg+xml,%3Csvg width='30' height='45' viewBox='0 0 30 45' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2365734C' stroke-width='1' opacity='0.03'%3E%3Cpath d='M15 0 Q10 12 15 25 Q8 35 15 45' stroke-width='1'/%3E%3Cpath d='M13 8 Q17 5 20 11 Q16 15 13 8' fill='%2365734C' opacity='0.025'/%3E%3Cpath d='M12 20 Q16 17 19 23 Q15 27 12 20' fill='%2365734C' opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     animation-delay: 10s;
 }
 
 .countdown-floating-element:nth-child(4) {
-    bottom: 30%;
+    bottom: 20%;
     right: 12%;
+    width: 38px;
+    height: 55px;
+    background: url("data:image/svg+xml,%3Csvg width='38' height='55' viewBox='0 0 38 55' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23728B5A' stroke-width='1' opacity='0.04'%3E%3Cpath d='M19 0 Q24 14 19 28 Q14 42 19 55' stroke-width='1.5'/%3E%3Cpath d='M21 11 Q25 8 28 14 Q24 18 21 11' fill='%23728B5A' opacity='0.03'/%3E%3Cpath d='M16 25 Q20 22 23 28 Q19 32 16 25' fill='%23728B5A' opacity='0.04'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
     animation-delay: 7s;
 }
 
-/* Central Connection Lines */
+/* Botanical Connection Lines */
 .countdown-connection {
     position: absolute;
     top: 50%;
@@ -1706,14 +1740,14 @@
     height: 1px;
     background: linear-gradient(90deg, 
         transparent, 
-        rgba(102, 126, 234, 0.2), 
-        rgba(240, 147, 251, 0.2), 
+        rgba(101, 115, 76, 0.15), 
+        rgba(114, 139, 90, 0.1), 
         transparent);
     z-index: 1;
-    animation: connectionPulse 4s ease-in-out infinite;
+    animation: countdownConnectionPulse 6s ease-in-out infinite;
 }
 
-/* Particle System */
+/* Botanical Particle System */
 .countdown-particles {
     position: absolute;
     top: 0;
@@ -1726,90 +1760,128 @@
 
 .countdown-particle {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(102, 126, 234, 0.6);
+    width: 3px;
+    height: 3px;
+    background: rgba(101, 115, 76, 0.3);
     border-radius: 50%;
-    animation: particleMove 8s linear infinite;
+    animation: countdownBotanicalParticleMove 12s linear infinite;
 }
 
-/* Advanced Animations */
-@keyframes gradientShift {
+/* BOTANICAL COUNTDOWN ANIMATIONS */
+@keyframes countdownBotanicalShimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
 
-@keyframes holographicShine {
+@keyframes countdownLeafGarland {
     0%, 100% { 
-        background-position: 0% 50%;
-        text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
-    }
-    25% { 
-        background-position: 100% 50%;
-        text-shadow: 0 0 40px rgba(118, 75, 162, 0.7);
+        opacity: 0.3; 
+        transform: translateX(-50%) scale(1);
     }
     50% { 
-        background-position: 200% 50%;
-        text-shadow: 0 0 50px rgba(240, 147, 251, 0.6);
-    }
-    75% { 
-        background-position: 300% 50%;
-        text-shadow: 0 0 35px rgba(102, 126, 234, 0.8);
+        opacity: 0.5; 
+        transform: translateX(-50%) scale(1.05);
     }
 }
 
-@keyframes glowPulse {
-    0%, 100% { opacity: 0.3; }
+@keyframes countdownBotanicalGlow {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: translateX(-50%) scaleX(1);
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: translateX(-50%) scaleX(1.2);
+    }
+}
+
+@keyframes countdownBotanicalShine {
+    0%, 100% { 
+        background-position: 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes countdownGlowPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes countdownLabelGlow {
+    0%, 100% { opacity: 0.4; }
     50% { opacity: 0.7; }
 }
 
-@keyframes pulseGlow {
-    0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(1); }
-    50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+@keyframes countdownSway {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) translateX(1px) rotate(0.3deg);
+    }
+    50% { 
+        transform: translateY(-2px) translateX(0px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-5px) translateX(-1px) rotate(-0.3deg);
+    }
 }
 
-@keyframes labelGlow {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
+@keyframes countdownBotanicalFloat {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.015;
+    }
+    50% { 
+        transform: translateY(-8px) scale(1.02);
+        opacity: 0.025;
+    }
 }
 
-@keyframes particleFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(120deg); }
-    66% { transform: translateY(-10px) rotate(240deg); }
+@keyframes countdownBotanicalWeddingFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.04;
+    }
+    25% {
+        transform: translateY(-10px) rotate(1deg);
+        opacity: 0.06;
+    }
+    50% { 
+        transform: translateY(-5px) rotate(-0.5deg);
+        opacity: 0.08;
+    }
+    75% {
+        transform: translateY(-15px) rotate(0.5deg);
+        opacity: 0.05;
+    }
 }
 
-@keyframes floatSpin {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 0.05; }
-    25% { transform: translateY(-30px) rotate(90deg); opacity: 0.1; }
-    50% { transform: translateY(-15px) rotate(180deg); opacity: 0.05; }
-    75% { transform: translateY(-40px) rotate(270deg); opacity: 0.08; }
-    100% { transform: translateY(0px) rotate(360deg); opacity: 0.05; }
+@keyframes countdownConnectionPulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.3; }
 }
 
-@keyframes connectionPulse {
-    0%, 100% { opacity: 0.2; }
-    50% { opacity: 0.6; }
-}
-
-@keyframes particleMove {
+@keyframes countdownBotanicalParticleMove {
     0% {
         transform: translateY(100vh) translateX(0);
         opacity: 0;
     }
     10% {
-        opacity: 1;
+        opacity: 0.3;
     }
     90% {
-        opacity: 1;
+        opacity: 0.3;
     }
     100% {
-        transform: translateY(-100px) translateX(100px);
+        transform: translateY(-50px) translateX(50px);
         opacity: 0;
     }
 }
 
-/* Mobile Responsive */
+/* BOTANICAL COUNTDOWN MOBILE ELEGANCE */
 @media (max-width: 768px) {
     .countdown-section {
         padding: 6rem 0;
@@ -1826,12 +1898,41 @@
     }
     
     .countdown-floating-element {
-        display: none;
+        opacity: 0.02;
+        width: 25px;
+        height: 35px;
+    }
+    
+    .countdown-floating-element:nth-child(1) {
+        background-size: 25px 35px;
+    }
+    
+    .countdown-floating-element:nth-child(2) {
+        width: 22px;
+        height: 30px;
+        background-size: 22px 30px;
+    }
+    
+    .countdown-floating-element:nth-child(3) {
+        width: 20px;
+        height: 28px;
+        background-size: 20px 28px;
+    }
+    
+    .countdown-floating-element:nth-child(4) {
+        width: 24px;
+        height: 32px;
+        background-size: 24px 32px;
     }
     
     .countdown-section .section-title {
         margin-bottom: 4rem;
         letter-spacing: 3px;
+    }
+    
+    .countdown-item {
+        border-radius: 18px;
+        padding: 2.5rem 1.5rem;
     }
 }
 /* BOTANICAL WEDDING CARD RSVP SECTION */

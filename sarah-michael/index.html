@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yara & Ali - Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -12,12 +14,12 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+    body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
 
         /* Hero Section */
         /* Hero Section - Modern with Background Photo */
@@ -66,27 +68,103 @@
     max-width: 600px;
     margin: 0 auto;
 }
-        .hero-card {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('Ali-Yara/kk1.jpg');
+.hero-card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('Ali-Yara/kk1.jpg');
     background-size: cover;
     background-position: center;
     padding: 4rem 3rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    max-width: 650px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(5px);
 }
 
-.hero-card .invitation-text,
-.hero-card .invitation-subtitle,
-.hero-card .celebration-text,
-.hero-card .venue-text,
+/* Enhanced text visibility with modern typography */
+.hero-card .invitation-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+}
+
 .hero-card .couple-names {
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: 4px;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-card .invitation-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero-card .celebration-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hero-card .wedding-date {
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    padding: 1.2rem 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-card .venue-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Ampersand styling */
+.ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8em;
+    opacity: 0.9;
+    font-style: italic;
+    font-weight: 300;
 }
 
 .hero-card .wedding-date {
@@ -110,42 +188,6 @@
     opacity: 0.7;
     font-style: italic;
 }
-
-.hero-card .invitation-text,
-.hero-card .invitation-subtitle,
-.hero-card .celebration-text,
-.hero-card .venue-text {
-    color: #8B7355;
-}
-
-.hero-card .couple-names {
-    color: #2c3e50;
-    text-shadow: none;
-}
-
-.hero-card .wedding-date {
-    color: #2c3e50;
-    background: none;
-    border: 2px solid #8B7355;
-    backdrop-filter: none;
-    text-shadow: none;
-}
-    color: #8B7355;
-}
-
-.-card .couple-names {
-    color: #2c3e50;
-    text-shadow: none;
-}
-
-.-card .wedding-date {
-    color: #2c3e50;
-    background: none;
-    border: 2px solid #8B7355;
-    backdrop-filter: none;
-    text-shadow: none;
-}
-
 
 .invitation-text {
     color: #8B7355;

@@ -21,7 +21,7 @@
 
         /* Hero Section */
         /* Hero Section - Modern with Background Photo */
-. {
+.hero {
     height: 100vh;
     position: relative;
     display: flex;
@@ -35,7 +35,7 @@
     text-align: center;
     overflow: hidden;
 }
-.::before {
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -49,14 +49,14 @@
     z-index: 1;
 }
 
-.-content {
+.hero-content {
     z-index: 3;
     position: relative;
     animation: SlideUp 1.2s ease-out;
     max-width: 800px;
     padding: 4rem 2rem;
 }
-        .-card {
+        .hero-card {
     background: rgba(255, 255, 255, 0.95);
     padding: 4rem 3rem;
     border-radius: 20px;
@@ -66,7 +66,7 @@
     max-width: 600px;
     margin: 0 auto;
 }
-        .-card {
+        .hero-card {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('Ali-Yara/kk1.jpg');
     background-size: cover;
     background-position: center;
@@ -80,16 +80,16 @@
     overflow: hidden;
 }
 
-.-card .invitation-text,
-.-card .invitation-subtitle,
-.-card .celebration-text,
-.-card .venue-text,
-.-card .couple-names {
+.hero-card .invitation-text,
+.hero-card .invitation-subtitle,
+.hero-card .celebration-text,
+.hero-card .venue-text,
+.hero-card .couple-names {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.-card .wedding-date {
+.hero-card .wedding-date {
     color: white;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -111,10 +111,25 @@
     font-style: italic;
 }
 
-.-card .invitation-text,
-.-card .invitation-subtitle,
-.-card .celebration-text,
-.-card .venue-text {
+.hero-card .invitation-text,
+.hero-card .invitation-subtitle,
+.hero-card .celebration-text,
+.hero-card .venue-text {
+    color: #8B7355;
+}
+
+.hero-card .couple-names {
+    color: #2c3e50;
+    text-shadow: none;
+}
+
+.hero-card .wedding-date {
+    color: #2c3e50;
+    background: none;
+    border: 2px solid #8B7355;
+    backdrop-filter: none;
+    text-shadow: none;
+}
     color: #8B7355;
 }
 
@@ -267,7 +282,7 @@
 }
 
 /* Keep the rest of your existing  styles */
-.-subtitle {
+.hero-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.4rem);
     font-weight: 300;
     opacity: 0.9;
@@ -2021,7 +2036,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-.-invitation {
+.hero-invitation {
     background: rgba(255, 255, 255, 0.95);
     padding: 3rem 2.5rem;
     border-radius: 15px;
@@ -2092,7 +2107,7 @@
         transform: translateY(-2px);
     }
 
-    .-content {
+    .hero-content {
         margin: 0 1rem;
          padding: 2rem 1rem;
     }

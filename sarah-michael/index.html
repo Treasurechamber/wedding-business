@@ -21,7 +21,7 @@
 
         /* Hero Section */
         /* Hero Section - Modern with Background Photo */
-.hero {
+. {
     height: 100vh;
     position: relative;
     display: flex;
@@ -35,7 +35,7 @@
     text-align: center;
     overflow: hidden;
 }
-.hero::before {
+.::before {
     content: '';
     position: absolute;
     top: 0;
@@ -49,14 +49,14 @@
     z-index: 1;
 }
 
-.hero-content {
+.-content {
     z-index: 3;
     position: relative;
-    animation: heroSlideUp 1.2s ease-out;
+    animation: SlideUp 1.2s ease-out;
     max-width: 800px;
     padding: 4rem 2rem;
 }
-        .hero-card {
+        .-card {
     background: rgba(255, 255, 255, 0.95);
     padding: 4rem 3rem;
     border-radius: 20px;
@@ -66,7 +66,7 @@
     max-width: 600px;
     margin: 0 auto;
 }
-        .hero-card {
+        .-card {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('Ali-Yara/kk1.jpg');
     background-size: cover;
     background-position: center;
@@ -80,16 +80,16 @@
     overflow: hidden;
 }
 
-.hero-card .invitation-text,
-.hero-card .invitation-subtitle,
-.hero-card .celebration-text,
-.hero-card .venue-text,
-.hero-card .couple-names {
+.-card .invitation-text,
+.-card .invitation-subtitle,
+.-card .celebration-text,
+.-card .venue-text,
+.-card .couple-names {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.hero-card .wedding-date {
+.-card .wedding-date {
     color: white;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -111,19 +111,19 @@
     font-style: italic;
 }
 
-.hero-card .invitation-text,
-.hero-card .invitation-subtitle,
-.hero-card .celebration-text,
-.hero-card .venue-text {
+.-card .invitation-text,
+.-card .invitation-subtitle,
+.-card .celebration-text,
+.-card .venue-text {
     color: #8B7355;
 }
 
-.hero-card .couple-names {
+.-card .couple-names {
     color: #2c3e50;
     text-shadow: none;
 }
 
-.hero-card .wedding-date {
+.-card .wedding-date {
     color: #2c3e50;
     background: none;
     border: 2px solid #8B7355;
@@ -131,21 +131,6 @@
     text-shadow: none;
 }
 
-        /* EMERGENCY FIX - Add this at the very end */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-    background-image: none !important;
-}
-
-.hero-content {
-    background: none !important;
-    background-image: none !important;
-}
-
-section#home {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-    background-image: none !important;
-}
 
 .invitation-text {
     color: #8B7355;
@@ -281,8 +266,8 @@ section#home {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Keep the rest of your existing hero styles */
-.hero-subtitle {
+/* Keep the rest of your existing  styles */
+.-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.4rem);
     font-weight: 300;
     opacity: 0.9;
@@ -320,7 +305,7 @@ section#home {
 }
 
 /* Animations */
-@keyframes heroSlideUp {
+@keyframes SlideUp {
     from {
         opacity: 0;
         transform: translateY(60px);
@@ -2036,7 +2021,7 @@ section#home {
 
         /* Responsive */
         @media (max-width: 768px) {
-.hero-invitation {
+.-invitation {
     background: rgba(255, 255, 255, 0.95);
     padding: 3rem 2.5rem;
     border-radius: 15px;
@@ -2107,7 +2092,7 @@ section#home {
         transform: translateY(-2px);
     }
 
-    .hero-content {
+    .-content {
         margin: 0 1rem;
          padding: 2rem 1rem;
     }

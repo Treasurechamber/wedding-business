@@ -81,6 +81,9 @@
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(5px);
+    transform: translateY(40px);
+    opacity: 0;
+    animation: cardSlideUp 1.5s ease-out 2.5s forwards;
 }
 
 /* Enhanced text visibility with modern typography */
@@ -166,7 +169,194 @@
     font-style: italic;
     font-weight: 300;
 }
+        /* ENVELOPE WRAPPER */
+.envelope-wrapper {
+    position: relative;
+    perspective: 1000px;
+    max-width: 650px;
+    margin: 0 auto;
+}
 
+/* ENVELOPE CONTAINER */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform-style: preserve-3d;
+}
+
+/* ENVELOPE BACK */
+.envelope-back {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(145deg, #f5f1eb 0%, #e8ddd4 100%);
+    border-radius: 15px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    z-index: 1;
+}
+
+/* ENVELOPE FLAP */
+.envelope-flap {
+    position: absolute;
+    top: -60px;
+    left: -20px;
+    right: -20px;
+    height: 100px;
+    background: linear-gradient(145deg, #f8f4ee 0%, #ede2d9 100%);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+    box-shadow: 
+        0 -5px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    animation: envelopeOpen 2s ease-in-out 1s forwards;
+}
+
+/* ENVELOPE SIDES */
+.envelope-left, .envelope-right {
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    width: 30px;
+    background: linear-gradient(145deg, #ede2d9 0%, #e0d5cc 100%);
+    z-index: 2;
+}
+
+.envelope-left {
+    left: -20px;
+    clip-path: polygon(0 0, 100% 20px, 100% calc(100% - 20px), 0 100%);
+}
+
+.envelope-right {
+    right: -20px;
+    clip-path: polygon(0 20px, 100% 0, 100% 100%, 0 calc(100% - 20px));
+}
+
+/* ENVELOPE SEAL */
+.envelope-seal {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(145deg, #c4a880 0%, #b8a071 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    z-index: 4;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 1.2s ease;
+    animation: sealBreak 2s ease-in-out 1s forwards;
+}
+
+/* ENVELOPE ANIMATIONS */
+@keyframes envelopeOpen {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    70% {
+        transform: rotateX(-120deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotateX(-180deg);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes sealBreak {
+    0% {
+        transform: translateX(-50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: translateX(-50%) scale(0) rotate(25deg);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+/* ENVELOPE PARTICLES */
+.envelope-particles {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -100px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.envelope-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #c4a880;
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 3s ease-out;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.3);
+    }
+}
+
+/* MOBILE ENVELOPE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .envelope-wrapper {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    .envelope-flap {
+        height: 80px;
+        top: -50px;
+    }
+    
+    .envelope-seal {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        top: -25px;
+    }
+}
+@keyframes cardSlideUp {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 .hero-card .wedding-date {
     color: white;
     background: rgba(255, 255, 255, 0.1);
@@ -2326,16 +2516,37 @@
 </nav>
 
     <!-- Hero Section -->
-<!-- Hero Section -->
 <section class="hero" id="home">
-  <div class="hero-card">
-    <p class="invitation-text">Together with their families</p>
-    <h1 class="couple-names">Yara <span class="ampersand">&</span> Ali</h1>
-    <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
-    <p class="celebration-text">Celebration of Love & Union</p>
-    <p class="wedding-date">08.18.25 at 6PM</p>
-    <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
-</div>
+    <div class="envelope-wrapper">
+        <!-- Envelope Particles -->
+        <div class="envelope-particles" id="envelopeParticles"></div>
+        
+        <!-- Envelope Container -->
+        <div class="envelope">
+            <!-- Envelope Back -->
+            <div class="envelope-back"></div>
+            
+            <!-- Envelope Sides -->
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            
+            <!-- Envelope Flap -->
+            <div class="envelope-flap"></div>
+            
+            <!-- Envelope Seal -->
+            <div class="envelope-seal">Y&A</div>
+            
+            <!-- Invitation Card -->
+            <div class="hero-card">
+                <p class="invitation-text">Together with their families</p>
+                <h1 class="couple-names">Yara <span class="ampersand">&</span> Ali</h1>
+                <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
+                <p class="celebration-text">Celebration of Love & Union</p>
+                <p class="wedding-date">08.18.25 at 6PM</p>
+                <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
+            </div>
+        </div>
+    </div>
 </section>
 
     <!-- Photo Slider -->
@@ -2742,6 +2953,35 @@ setInterval(createCountdownParticle, 800);
         }
 
         setInterval(createHeart, 800);
+        // Envelope particle effect
+function createEnvelopeParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'envelope-particle';
+    
+    // Random position around the seal
+    const x = Math.random() * 100 - 50;
+    const y = Math.random() * 100 - 50;
+    particle.style.left = `calc(50% + ${x}px)`;
+    particle.style.top = `calc(50% + ${y}px)`;
+    
+    document.getElementById('envelopeParticles').appendChild(particle);
+    
+    // Remove particle after animation
+    setTimeout(() => {
+        if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+        }
+    }, 3000);
+}
+
+// Create particles when seal breaks
+setTimeout(() => {
+    for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+            createEnvelopeParticle();
+        }, i * 100);
+    }
+}, 2000);
 
         // RSVP Form submission with database
         // Simple RSVP form (localStorage only)

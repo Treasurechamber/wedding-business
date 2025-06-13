@@ -66,6 +66,37 @@
     max-width: 600px;
     margin: 0 auto;
 }
+        .card-photo {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.couple-photo {
+    width: 100%;
+    max-height: 250px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(139, 115, 85, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.ampersand {
+    font-size: 0.8em;
+    opacity: 0.7;
+    font-style: italic;
+}
 
 .hero-card .invitation-text,
 .hero-card .invitation-subtitle,
@@ -2242,16 +2273,17 @@ section#home {
     <!-- Hero Section -->
 <!-- Hero Section -->
 <section class="hero" id="home">
-    <div class="hero-content">
-        <div class="hero-card">
-            <p class="invitation-text">Together with their families</p>
-            <h1 class="couple-names">Yara & Ali</h1>
-            <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
-            <p class="celebration-text">Celebration of Love & Union</p>
-            <p class="wedding-date">08.18.25 at 6PM</p>
-            <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
-        </div>
+  <div class="hero-card">
+    <div class="card-photo">
+        <img src="Ali-Yara/kk1.jpg" alt="Yara & Ali" class="couple-photo">
     </div>
+    <p class="invitation-text">Together with their families</p>
+    <h1 class="couple-names">Yara <span class="ampersand">&</span> Ali</h1>
+    <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
+    <p class="celebration-text">Celebration of Love & Union</p>
+    <p class="wedding-date">08.18.25 at 6PM</p>
+    <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
+</div>
 </section>
 
     <!-- Photo Slider -->

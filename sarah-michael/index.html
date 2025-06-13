@@ -70,6 +70,165 @@
     max-width: 650px;
     margin: 0 auto;
     color: white;
+    position: relative;
+    overflow: visible; /* Changed from hidden to visible */
+}
+        /* Elegant Envelope Border */
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 35px;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+}
+
+/* Inner Envelope Detail */
+.hero-card::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    z-index: -1;
+}
+
+/* Envelope Corner Decorations */
+.envelope-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.envelope-corner::before,
+.envelope-corner::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Corner Styles */
+.envelope-corner.top-left {
+    top: -20px;
+    left: -20px;
+    border-bottom: none;
+    border-right: none;
+    border-radius: 8px 0 0 0;
+}
+
+.envelope-corner.top-left::before {
+    top: 8px;
+    left: 8px;
+    width: 14px;
+    height: 1px;
+}
+
+.envelope-corner.top-left::after {
+    top: 8px;
+    left: 8px;
+    width: 1px;
+    height: 14px;
+}
+
+.envelope-corner.top-right {
+    top: -20px;
+    right: -20px;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 0 8px 0 0;
+}
+
+.envelope-corner.top-right::before {
+    top: 8px;
+    right: 8px;
+    width: 14px;
+    height: 1px;
+}
+
+.envelope-corner.top-right::after {
+    top: 8px;
+    right: 8px;
+    width: 1px;
+    height: 14px;
+}
+
+.envelope-corner.bottom-left {
+    bottom: -20px;
+    left: -20px;
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 8px;
+}
+
+.envelope-corner.bottom-left::before {
+    bottom: 8px;
+    left: 8px;
+    width: 14px;
+    height: 1px;
+}
+
+.envelope-corner.bottom-left::after {
+    bottom: 8px;
+    left: 8px;
+    width: 1px;
+    height: 14px;
+}
+
+.envelope-corner.bottom-right {
+    bottom: -20px;
+    right: -20px;
+    border-top: none;
+    border-left: none;
+    border-radius: 0 0 8px 0;
+}
+
+.envelope-corner.bottom-right::before {
+    bottom: 8px;
+    right: 8px;
+    width: 14px;
+    height: 1px;
+}
+
+.envelope-corner.bottom-right::after {
+    bottom: 8px;
+    right: 8px;
+    width: 1px;
+    height: 14px;
+}
+
+/* Elegant Seal */
+.envelope-seal {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    backdrop-filter: blur(15px);
+    z-index: 2;
 }
 /* Make text visible */
 .hero-card * {
@@ -2331,16 +2490,24 @@
     <!-- Hero Section -->
 <!-- Hero Section -->
 <section class="hero" id="home">
-    <div class="hero-content">
-        <div class="hero-card">
-            <p class="invitation-text">Together with their families</p>
-            <h1 class="couple-names">Yara <span class="ampersand">&</span> Ali</h1>
-            <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
-            <p class="celebration-text">Celebration of Love & Union</p>
-            <p class="wedding-date">08.18.25 at 6PM</p>
-            <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
-        </div>
-    </div>
+<div class="hero-card">
+    <!-- Envelope Corner Decorations -->
+    <div class="envelope-corner top-left"></div>
+    <div class="envelope-corner top-right"></div>
+    <div class="envelope-corner bottom-left"></div>
+    <div class="envelope-corner bottom-right"></div>
+    
+    <!-- Elegant Seal -->
+    <div class="envelope-seal">Y&A</div>
+    
+    <!-- Original content -->
+    <p class="invitation-text">Together with their families</p>
+    <h1 class="couple-names">Yara <span class="ampersand">&</span> Ali</h1>
+    <p class="invitation-subtitle">Joyfully invite you to their presence at their</p>
+    <p class="celebration-text">Celebration of Love & Union</p>
+    <p class="wedding-date">08.18.25 at 6PM</p>
+    <p class="venue-text">The Emerald Villa | 299 1st Ave | Seattle, WA</p>
+</div>
 </section>
 
     <!-- Photo Slider -->

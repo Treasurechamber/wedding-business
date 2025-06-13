@@ -60,7 +60,7 @@
 }
 
 .hero-card {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('Ali-Yara/kk1.jpg');
+   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('./Ali-Yara/kk1.jpg');
     background-size: cover;
     background-position: center;
     padding: 4rem 3rem;
@@ -76,7 +76,11 @@
     opacity: 0;
     animation: cardSlideUp 1.5s ease-out 2.5s forwards;
 }
-
+/* Make text visible */
+.hero-card * {
+    color: white !important;
+    text-shadow: 2px 2px 8px black !important;
+}
 /* Enhanced text visibility with modern typography */
 .hero-card .invitation-text {
     color: rgba(255, 255, 255, 0.95);

@@ -2633,6 +2633,122 @@
                 opacity: 0;
             }
         }
+        /* TREE BRANCH DECORATION FOR ALL SECTION TITLES */
+
+/* Add tree branch above all section titles */
+.section-title {
+    position: relative;
+    padding-top: 4rem;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 80px;
+    background: url('Ali-Yara/tree-branch.jpg') no-repeat center;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* Specific styling for different sections */
+
+/* Photo Slider Section */
+.photo-slider .section-title::before {
+    width: 160px;
+    height: 85px;
+    top: -10px;
+}
+
+/* Timeline Section */
+.timeline-section .section-title::before {
+    width: 155px;
+    height: 82px;
+    top: -5px;
+}
+
+/* Countdown Section */
+.countdown-section .section-title::before {
+    width: 150px;
+    height: 80px;
+    top: 0;
+}
+
+/* RSVP Section */
+.rsvp-section .section-title::before {
+    width: 145px;
+    height: 78px;
+    top: 5px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        padding-top: 3rem;
+    }
+    
+    .section-title::before {
+        width: 120px;
+        height: 65px;
+        top: -5px;
+    }
+    
+    .photo-slider .section-title::before {
+        width: 125px;
+        height: 68px;
+        top: -8px;
+    }
+    
+    .timeline-section .section-title::before {
+        width: 122px;
+        height: 66px;
+        top: -6px;
+    }
+    
+    .countdown-section .section-title::before {
+        width: 120px;
+        height: 65px;
+        top: -5px;
+    }
+    
+    .rsvp-section .section-title::before {
+        width: 118px;
+        height: 63px;
+        top: -3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        padding-top: 2.5rem;
+    }
+    
+    .section-title::before {
+        width: 100px;
+        height: 55px;
+        top: -10px;
+    }
+    
+    .photo-slider .section-title::before,
+    .timeline-section .section-title::before,
+    .countdown-section .section-title::before,
+    .rsvp-section .section-title::before {
+        width: 100px;
+        height: 55px;
+        top: -10px;
+    }
+}
+
+/* Hover animation for the branch */
+.section-title:hover::before {
+    transform: translateX(-50%) scale(1.05);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
 
     </style>
 </head>
